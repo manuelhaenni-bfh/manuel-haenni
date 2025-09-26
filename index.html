@@ -1073,16 +1073,6 @@
                 transform: scale(1.05) rotate(1deg); /* Reduzierter Hover-Effekt auf Tablet */
             }
 
-            /* Reduzierte Hobby-Animationen auf Tablets */
-            .hobby-tag:nth-child(1):hover,
-            .hobby-tag:nth-child(2):hover,
-            .hobby-tag:nth-child(3):hover,
-            .hobby-tag:nth-child(4):hover,
-            .hobby-tag:nth-child(5):hover,
-            .hobby-tag:nth-child(6):hover {
-                animation-duration: 0.6s; /* Kürzere Animationen */
-            }
-
             .hero-buttons {
                 justify-content: center;
             }
@@ -1168,17 +1158,6 @@
 
             .profile-photo:hover {
                 transform: none; /* Kein Hover-Effekt auf Mobile */
-            }
-
-            /* Keine Hobby-Animationen auf Mobile */
-            .hobby-tag:nth-child(1):hover,
-            .hobby-tag:nth-child(2):hover,
-            .hobby-tag:nth-child(3):hover,
-            .hobby-tag:nth-child(4):hover,
-            .hobby-tag:nth-child(5):hover,
-            .hobby-tag:nth-child(6):hover {
-                animation: none;
-                transform: none;
             }
         }
 
@@ -1276,12 +1255,24 @@
                     Ich studiere Digital Business und AI und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik der Universität Bern. Neben meinem Interesse an der Verbindung von Wirtschaft und Technologie spiele ich gerne Fussball und lebe in einer WG in Bern.
                 </p>
                 <div class="hobbies">
-                    <span class="hobby-tag">⚽ Fussball (FC Langnau)</span>
-                    <span class="hobby-tag">🎾 Tennis</span>
-                    <span class="hobby-tag">🥾 Wandern</span>
-                    <span class="hobby-tag">✈️ Reisen</span>
-                    <span class="hobby-tag">⛷️ Skifahren</span>
-                    <span class="hobby-tag">👨‍🍳 Kochen</span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'football')">
+                        <span class="hobby-emoji">⚽</span> Fussball (FC Langnau)
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'tennis')">
+                        <span class="hobby-emoji">🎾</span> Tennis
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'hiking')">
+                        <span class="hobby-emoji">🥾</span> Wandern
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'travel')">
+                        <span class="hobby-emoji">✈️</span> Reisen
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'skiing')">
+                        <span class="hobby-emoji">⛷️</span> Skifahren
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'cooking')">
+                        <span class="hobby-emoji">👨‍🍳</span> Kochen
+                    </span>
                 </div>
             </div>
         </div>
@@ -1764,6 +1755,25 @@
         // Console-Nachricht für Entwickler
         console.log('👋 Hallo! Diese Website wurde für Manuel Hänni entwickelt.');
         console.log('💼 Interesse an einer Zusammenarbeit? Kontaktieren Sie manuel.haenni@icloud.com');
+
+        // Hobby Animation Function
+        function animateHobby(element, animationType) {
+            const emoji = element.querySelector('.hobby-emoji');
+            
+            // Remove any existing animation classes
+            emoji.className = 'hobby-emoji';
+            
+            // Force reflow to reset animation
+            emoji.offsetHeight;
+            
+            // Add the specific animation class
+            emoji.classList.add('emoji-' + animationType);
+            
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                emoji.classList.remove('emoji-' + animationType);
+            }, 2000); // Max animation duration + buffer
+        }
     </script>
 </body>
 </html>
