@@ -451,6 +451,7 @@
 
         /* Hobby Animations */
         .hobby-tag:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
 
@@ -1760,19 +1761,33 @@
         function animateHobby(element, animationType) {
             const emoji = element.querySelector('.hobby-emoji');
             
+            // Prevent multiple animations at once
+            if (emoji.classList.contains('emoji-' + animationType)) {
+                return;
+            }
+            
             // Remove any existing animation classes
-            emoji.className = 'hobby-emoji';
+            emoji.classList.remove('emoji-football', 'emoji-tennis', 'emoji-hiking', 'emoji-travel', 'emoji-skiing', 'emoji-cooking');
             
             // Force reflow to reset animation
-            emoji.offsetHeight;
+            void emoji.offsetWidth;
             
             // Add the specific animation class
             emoji.classList.add('emoji-' + animationType);
             
             // Remove animation class after animation completes
+            const animationDurations = {
+                'football': 1500,
+                'tennis': 1200,
+                'hiking': 1300,
+                'travel': 1800,
+                'skiing': 1400,
+                'cooking': 1500
+            };
+            
             setTimeout(() => {
                 emoji.classList.remove('emoji-' + animationType);
-            }, 2000); // Max animation duration + buffer
+            }, animationDurations[animationType] || 1500);
         }
     </script>
 </body>
