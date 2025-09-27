@@ -883,34 +883,66 @@
             background: white;
         }
 
-        .travel-content {
+        .travel-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: start;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .travel-map-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .travel-map-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .map-header {
+            padding: 1.5rem 1.5rem 1rem;
+            text-align: center;
+        }
+
+        .map-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .map-header p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
         }
 
         .travel-map {
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
             position: relative;
             background: var(--gray-100);
         }
 
         .travel-map iframe {
-            border-radius: var(--radius-xl);
             transition: var(--transition);
+            border: none;
         }
 
-        .travel-map:hover iframe {
-            transform: scale(1.02);
+        .map-footer {
+            padding: 1rem 1.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
         }
 
         .travel-info {
             display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            justify-content: center;
         }
 
         .travel-card {
@@ -920,6 +952,7 @@
             text-align: center;
             box-shadow: var(--shadow-md);
             transition: var(--transition);
+            max-width: 500px;
         }
 
         .travel-card:hover {
@@ -1644,28 +1677,62 @@
             <h2 class="section-title">Meine Reisen</h2>
             <p class="section-subtitle">Entdecke meine Abenteuer rund um die Welt</p>
             
-            <div class="travel-content">
-                <div class="travel-map">
-                    <iframe 
-                        src="https://www.polarsteps.com/ManuelHaenni/embed"
-                        width="100%" 
-                        height="500" 
-                        frameborder="0" 
-                        allowfullscreen
-                        loading="lazy"
-                        title="Manuel's Reisen auf Polarsteps">
-                    </iframe>
-                </div>
-                
-                <div class="travel-info">
-                    <div class="travel-card">
-                        <div class="travel-icon">🌍</div>
-                        <h3>Reise mit mir</h3>
-                        <p>Folge meinen Abenteuern in Echtzeit auf Polarsteps. Von Wanderungen in den Schweizer Alpen bis zu Reisen um die Welt.</p>
-                        <a href="https://www.polarsteps.com/ManuelHaenni" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                            Meine Reisen verfolgen
+            <div class="travel-grid">
+                <div class="travel-map-card">
+                    <div class="map-header">
+                        <h3>🚄 Interrail Abenteuer</h3>
+                        <p>Quer durch Europa mit dem Zug</p>
+                    </div>
+                    <div class="travel-map">
+                        <iframe 
+                            src="https://www.polarsteps.com/ManuelHaenni/11186343-interrail/embed"
+                            width="100%" 
+                            height="400" 
+                            frameborder="0" 
+                            allowfullscreen
+                            loading="lazy"
+                            title="Manuel's Interrail Reise">
+                        </iframe>
+                    </div>
+                    <div class="map-footer">
+                        <a href="https://www.polarsteps.com/ManuelHaenni/11186343-interrail?s=47A0961D-DFCE-43E6-A704-3C87189A1E8A" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+                            Details ansehen
                         </a>
                     </div>
+                </div>
+
+                <div class="travel-map-card">
+                    <div class="map-header">
+                        <h3>🌴 Südostasien Trip</h3>
+                        <p>Abenteuer in Asien mit Manu</p>
+                    </div>
+                    <div class="travel-map">
+                        <iframe 
+                            src="https://www.polarsteps.com/ManuelHaenni/8115868-sudostasien-trip-mit-manu/embed"
+                            width="100%" 
+                            height="400" 
+                            frameborder="0" 
+                            allowfullscreen
+                            loading="lazy"
+                            title="Manuel's Südostasien Reise">
+                        </iframe>
+                    </div>
+                    <div class="map-footer">
+                        <a href="https://www.polarsteps.com/ManuelHaenni/8115868-sudostasien-trip-mit-manu?s=7CB507AB-043C-47B3-B6EB-2FED25BE2C78" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+                            Details ansehen
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="travel-info">
+                <div class="travel-card">
+                    <div class="travel-icon">🌍</div>
+                    <h3>Reise mit mir</h3>
+                    <p>Folge meinen Abenteuern in Echtzeit auf Polarsteps. Von Interrail durch Europa bis zu exotischen Reisen in Südostasien.</p>
+                    <a href="https://www.polarsteps.com/ManuelHaenni" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Alle Reisen verfolgen
+                    </a>
                 </div>
             </div>
         </div>
