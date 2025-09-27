@@ -923,11 +923,73 @@
         .travel-map {
             position: relative;
             background: var(--gray-100);
+            height: 400px;
         }
 
         .travel-map iframe {
             transition: var(--transition);
             border: none;
+        }
+
+        /* Map Preview Styles */
+        .map-preview {
+            height: 100%;
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-mint));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            opacity: 0.5;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .map-overlay .map-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .map-overlay h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .map-overlay p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .map-overlay .btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--accent-blue);
+            border: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .map-overlay .btn:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .map-footer {
@@ -1684,15 +1746,16 @@
                         <p>Quer durch Europa mit dem Zug</p>
                     </div>
                     <div class="travel-map">
-                        <iframe 
-                            src="https://www.polarsteps.com/ManuelHaenni/11186343-interrail/embed"
-                            width="100%" 
-                            height="400" 
-                            frameborder="0" 
-                            allowfullscreen
-                            loading="lazy"
-                            title="Manuel's Interrail Reise">
-                        </iframe>
+                        <div class="map-preview">
+                            <div class="map-overlay">
+                                <div class="map-icon">🗺️</div>
+                                <h4>Europa Rundreise</h4>
+                                <p>Mehrere Länder • Zug-Abenteuer</p>
+                                <a href="https://www.polarsteps.com/ManuelHaenni/11186343-interrail?s=47A0961D-DFCE-43E6-A704-3C87189A1E8A" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-small">
+                                    🚄 Reise anschauen
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div class="map-footer">
                         <a href="https://www.polarsteps.com/ManuelHaenni/11186343-interrail?s=47A0961D-DFCE-43E6-A704-3C87189A1E8A" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
@@ -1707,15 +1770,16 @@
                         <p>Abenteuer in Asien mit Manu</p>
                     </div>
                     <div class="travel-map">
-                        <iframe 
-                            src="https://www.polarsteps.com/ManuelHaenni/8115868-sudostasien-trip-mit-manu/embed"
-                            width="100%" 
-                            height="400" 
-                            frameborder="0" 
-                            allowfullscreen
-                            loading="lazy"
-                            title="Manuel's Südostasien Reise">
-                        </iframe>
+                        <div class="map-preview">
+                            <div class="map-overlay">
+                                <div class="map-icon">🌏</div>
+                                <h4>Asien Abenteuer</h4>
+                                <p>Südostasien • Backpacking</p>
+                                <a href="https://www.polarsteps.com/ManuelHaenni/8115868-sudostasien-trip-mit-manu?s=7CB507AB-043C-47B3-B6EB-2FED25BE2C78" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-small">
+                                    🌴 Reise anschauen
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div class="map-footer">
                         <a href="https://www.polarsteps.com/ManuelHaenni/8115868-sudostasien-trip-mit-manu?s=7CB507AB-043C-47B3-B6EB-2FED25BE2C78" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
