@@ -432,6 +432,10 @@
             font-size: 0.875rem;
             font-weight: 500;
             transition: var(--transition);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
         .hobby-tag:hover {
@@ -447,6 +451,94 @@
         .hobby-tag:nth-child(3n) {
             background: var(--pastel-lavender);
             color: var(--accent-lavender);
+        }
+
+        /* Hobby Link Styling */
+        .hobby-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .hobby-link:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .hobby-link:visited {
+            color: inherit;
+        }
+
+        /* Emoji Styling */
+        .hobby-emoji {
+            display: inline-block;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Animation Classes */
+        .animate-football {
+            animation: roll-right 1s ease-in-out;
+        }
+
+        .animate-tennis {
+            animation: bounce-right 0.8s ease-in-out;
+        }
+
+        .animate-hiking {
+            animation: walk-right 1s ease-in-out;
+        }
+
+        .animate-travel {
+            animation: fly-right 1.2s ease-in-out;
+        }
+
+        .animate-skiing {
+            animation: slide-right 1s ease-in-out;
+        }
+
+        .animate-cooking {
+            animation: stir 1s ease-in-out;
+        }
+
+        /* Keyframe Animations */
+        @keyframes roll-right {
+            0% { transform: translateX(0) rotate(0deg); }
+            100% { transform: translateX(30px) rotate(360deg); }
+        }
+
+        @keyframes bounce-right {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(7px) translateY(-5px); }
+            50% { transform: translateX(15px) translateY(0); }
+            75% { transform: translateX(22px) translateY(-3px); }
+        }
+
+        @keyframes walk-right {
+            0% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(8px) rotate(-5deg); }
+            50% { transform: translateX(16px) rotate(0deg); }
+            75% { transform: translateX(24px) rotate(5deg); }
+            100% { transform: translateX(30px) rotate(0deg); }
+        }
+
+        @keyframes fly-right {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(20px) translateY(-3px); }
+            100% { transform: translateX(40px) translateY(0); }
+        }
+
+        @keyframes slide-right {
+            0% { transform: translateX(0) skewX(0deg); }
+            50% { transform: translateX(20px) skewX(-3deg); }
+            100% { transform: translateX(35px) skewX(0deg); }
+        }
+
+        @keyframes stir {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.1); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
         }
 
         /* Hobby Animations */
@@ -1044,6 +1136,15 @@
                 gap: 2rem;
             }
 
+            /* Mobile: Bild oben, Text unten */
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
             .hero-text h1 {
                 font-size: 2.5rem;
             }
@@ -1256,12 +1357,24 @@
                     Ich studiere Digital Business und AI und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik der Universität Bern. Neben meinem Interesse an der Verbindung von Wirtschaft und Technologie spiele ich gerne Fussball und lebe in einer WG in Bern.
                 </p>
                 <div class="hobbies">
-                    <span class="hobby-tag">⚽ Fussball (FC Langnau)</span>
-                    <span class="hobby-tag">🎾 Tennis</span>
-                    <span class="hobby-tag">🥾 Wandern</span>
-                    <span class="hobby-tag">✈️ Reisen</span>
-                    <span class="hobby-tag">⛷️ Skifahren</span>
-                    <span class="hobby-tag">👨‍🍳 Kochen</span>
+                    <a href="https://fclangnau.ch/teams/1-mannschaft" target="_blank" rel="noopener noreferrer" class="hobby-tag hobby-link" onclick="animateHobby(this, 'football'); return true;">
+                        <span class="hobby-emoji">⚽</span> Fussball (FC Langnau)
+                    </a>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'tennis')">
+                        <span class="hobby-emoji">🎾</span> Tennis
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'hiking')">
+                        <span class="hobby-emoji">🥾</span> Wandern
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'travel')">
+                        <span class="hobby-emoji">✈️</span> Reisen
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'skiing')">
+                        <span class="hobby-emoji">⛷️</span> Skifahren
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'cooking')">
+                        <span class="hobby-emoji">👨‍🍳</span> Kochen
+                    </span>
                 </div>
             </div>
         </div>
@@ -1744,6 +1857,22 @@
         // Console-Nachricht für Entwickler
         console.log('👋 Hallo! Diese Website wurde für Manuel Hänni entwickelt.');
         console.log('💼 Interesse an einer Zusammenarbeit? Kontaktieren Sie manuel.haenni@icloud.com');
+
+        // Hobby Animation Function
+        function animateHobby(element, type) {
+            const emoji = element.querySelector('.hobby-emoji');
+            
+            // Remove any existing animation
+            emoji.classList.remove('animate-football', 'animate-tennis', 'animate-hiking', 'animate-travel', 'animate-skiing', 'animate-cooking');
+            
+            // Add new animation
+            emoji.classList.add('animate-' + type);
+            
+            // Remove animation class after it completes
+            setTimeout(() => {
+                emoji.classList.remove('animate-' + type);
+            }, 1200); // Animation duration + buffer
+        }
     </script>
 </body>
 </html>
