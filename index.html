@@ -878,6 +878,85 @@
             font-size: 0.9rem;
         }
 
+        /* Travel Section */
+        .travel {
+            background: white;
+        }
+
+        .travel-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .travel-map {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            background: var(--gray-100);
+        }
+
+        .travel-map iframe {
+            border-radius: var(--radius-xl);
+            transition: var(--transition);
+        }
+
+        .travel-map:hover iframe {
+            transform: scale(1.02);
+        }
+
+        .travel-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .travel-card {
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-mint));
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .travel-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .travel-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .travel-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+        }
+
+        .travel-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .travel-card .btn {
+            background: white;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+        }
+
+        .travel-card .btn:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
         /* Contact Section */
         .contact {
             background: var(--gray-50);
@@ -1313,6 +1392,7 @@
                 <a href="#experience">Erfahrung</a>
                 <a href="#education">Ausbildung</a>
                 <a href="#certifications">Zertifikate</a>
+                <a href="#travel">Reisen</a>
                 <a href="#contact">Kontakt</a>
             </nav>
             <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
@@ -1551,6 +1631,39 @@
                         </div>
                         <a href="assets/CPRE-Zertifikat.pdf" class="btn btn-secondary cert-download" target="_blank" rel="noopener noreferrer">
                             📄 Zertifikat Anzeigen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Section -->
+    <section class="travel" id="travel">
+        <div class="container">
+            <h2 class="section-title">Meine Reisen</h2>
+            <p class="section-subtitle">Entdecke meine Abenteuer rund um die Welt</p>
+            
+            <div class="travel-content">
+                <div class="travel-map">
+                    <iframe 
+                        src="https://www.polarsteps.com/ManuelHaenni/embed"
+                        width="100%" 
+                        height="500" 
+                        frameborder="0" 
+                        allowfullscreen
+                        loading="lazy"
+                        title="Manuel's Reisen auf Polarsteps">
+                    </iframe>
+                </div>
+                
+                <div class="travel-info">
+                    <div class="travel-card">
+                        <div class="travel-icon">🌍</div>
+                        <h3>Reise mit mir</h3>
+                        <p>Folge meinen Abenteuern in Echtzeit auf Polarsteps. Von Wanderungen in den Schweizer Alpen bis zu Reisen um die Welt.</p>
+                        <a href="https://www.polarsteps.com/ManuelHaenni" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            Meine Reisen verfolgen
                         </a>
                     </div>
                 </div>
