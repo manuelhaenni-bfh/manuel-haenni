@@ -950,6 +950,23 @@
         updateActiveNav();
         updateHeader();
 
+        // Immer nach oben scrollen beim Laden der Seite
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+
+        // Browser-Scroll-Wiederherstellung deaktivieren
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        // Zusätzlicher Fallback für Page Load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
+
         // Hobby Animation Function
         function animateHobby(element, type) {
             const emoji = element.querySelector('.hobby-emoji');
