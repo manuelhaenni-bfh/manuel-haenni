@@ -624,7 +624,6 @@
                 gap: 2rem;
             }
 
-            /* Mobile: Bild oben, Text unten */
             .hero-text {
                 order: 2;
             }
@@ -641,7 +640,6 @@
                 font-size: 2rem;
             }
 
-            /* Mobile Profilbild Anpassungen */
             .hero-image {
                 height: 300px;
             }
@@ -692,7 +690,6 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Weitere Mobile Anpassungen für Profilbild */
             .hero-image {
                 height: 250px;
             }
@@ -706,49 +703,12 @@
                 inset: -30px;
             }
 
-            /* Reduzierte Animationen auf sehr kleinen Bildschirmen */
             .profile-container {
                 animation: none;
             }
 
             .profile-photo:hover {
                 transform: none;
-            }
-        }
-
-        /* Keyboard Navigation Styles */
-        body.keyboard-navigation *:focus {
-            outline: 2px solid var(--accent-blue);
-            outline-offset: 2px;
-        }
-
-        /* Print Styles */
-        @media print {
-            .header,
-            .footer,
-            .hero-buttons {
-                display: none;
-            }
-
-            body {
-                font-size: 12pt;
-                line-height: 1.4;
-                color: black;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 1rem 0;
-            }
-
-            section {
-                padding: 1rem 0;
-                page-break-inside: avoid;
-            }
-
-            .skill-card {
-                box-shadow: none;
-                border: 1px solid var(--gray-300);
             }
         }
     </style>
@@ -759,9 +719,8 @@
         <div class="header-content">
             <div class="logo">MH</div>
             <nav class="nav" id="nav">
-                <a href="#about" class="active">Über mich</a>
-                <a href="#skills">Skills</a>
-                <a href="erfahrung.html">Erfahrung</a>
+                <a href="#hero" class="active">Home</a>
+                <a href="erfahrung.html">Berufserfahrung</a>
                 <a href="ausbildung.html">Ausbildung</a>
                 <a href="zertifikate.html">Zertifikate</a>
                 <a href="reisen.html">Reisen</a>
@@ -809,22 +768,22 @@
                     Ich studiere Digital Business und AI und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik der Universität Bern. Neben meinem Interesse an der Verbindung von Wirtschaft und Technologie spiele ich gerne Fussball und lebe in einer WG in Bern.
                 </p>
                 <div class="hobbies">
-                    <a href="https://fclangnau.ch/teams/1-mannschaft" target="_blank" rel="noopener noreferrer" class="hobby-tag hobby-link">
+                    <a href="https://fclangnau.ch/teams/1-mannschaft" target="_blank" rel="noopener noreferrer" class="hobby-tag hobby-link" onclick="animateHobby(this, 'football'); return true;">
                         <span class="hobby-emoji">⚽</span> Fussball (FC Langnau)
                     </a>
-                    <span class="hobby-tag">
+                    <span class="hobby-tag" onclick="animateHobby(this, 'tennis')">
                         <span class="hobby-emoji">🎾</span> Tennis
                     </span>
-                    <span class="hobby-tag">
+                    <span class="hobby-tag" onclick="animateHobby(this, 'hiking')">
                         <span class="hobby-emoji">🥾</span> Wandern
                     </span>
-                    <span class="hobby-tag">
+                    <span class="hobby-tag" onclick="animateHobby(this, 'travel')">
                         <span class="hobby-emoji">✈️</span> Reisen
                     </span>
-                    <span class="hobby-tag">
+                    <span class="hobby-tag" onclick="animateHobby(this, 'skiing')">
                         <span class="hobby-emoji">⛷️</span> Skifahren
                     </span>
-                    <span class="hobby-tag">
+                    <span class="hobby-tag" onclick="animateHobby(this, 'cooking')">
                         <span class="hobby-emoji">👨‍🍳</span> Kochen
                     </span>
                 </div>
@@ -878,8 +837,8 @@
             <div class="footer-content">
                 <div>&copy; 2025 Manuel Hänni. Alle Rechte vorbehalten.</div>
                 <div class="footer-links">
-                    <a href="#impressum">Impressum</a>
-                    <a href="#datenschutz">Datenschutz</a>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
                 </div>
             </div>
         </div>
@@ -926,6 +885,8 @@
                 link.classList.remove('active');
                 if (link.getAttribute('href').includes(current) && current) {
                     link.classList.add('active');
+                } else if (link.getAttribute('href') === '#hero' && (current === '' || current === 'hero')) {
+                    link.classList.add('active');
                 }
             });
         }
@@ -952,32 +913,11 @@
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
-                // Nur bei Ankern (beginnt mit #) preventDefault
                 if (href.startsWith('#')) {
                     e.preventDefault();
-                    const targetId = href;
-                    const targetSection = document.querySelector(targetId);
+                    const targetSection = document.querySelector(href);
                     if (targetSection) {
                         const offsetTop = targetSection.offsetTop - 80;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-                // Bei .html Links normal weiterleiten
-            });
-        });
-
-        // Hero-Buttons Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                if (href.startsWith('#') && href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const offsetTop = target.offsetTop - 80;
                         window.scrollTo({
                             top: offsetTop,
                             behavior: 'smooth'
@@ -1010,33 +950,15 @@
         updateActiveNav();
         updateHeader();
 
-        // Performance: Lazy Loading für Bilder
-        if ('loading' in HTMLImageElement.prototype) {
-            const images = document.querySelectorAll('img[loading="lazy"]');
-            images.forEach(img => {
-                img.src = img.src;
-            });
-        } else {
-            // Fallback für ältere Browser
-            const script = document.createElement('script');
-            script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
-            document.head.appendChild(script);
+        // Hobby Animation Function
+        function animateHobby(element, type) {
+            const emoji = element.querySelector('.hobby-emoji');
+            emoji.classList.remove('animate-football', 'animate-tennis', 'animate-hiking', 'animate-travel', 'animate-skiing', 'animate-cooking');
+            emoji.classList.add('animate-' + type);
+            setTimeout(() => {
+                emoji.classList.remove('animate-' + type);
+            }, 1200);
         }
-
-        // Keyboard Navigation Support
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Tab') {
-                document.body.classList.add('keyboard-navigation');
-            }
-        });
-
-        document.addEventListener('mousedown', () => {
-            document.body.classList.remove('keyboard-navigation');
-        });
-
-        // Console-Nachricht für Entwickler
-        console.log('👋 Diese Website wurde von Manuel Hänni entwickelt.');
-        console.log('💼 Interesse an einer Zusammenarbeit? Kontaktieren Sie manuel.haenni@icloud.com');
     </script>
 </body>
 </html>
