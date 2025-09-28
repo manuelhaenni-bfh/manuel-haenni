@@ -361,9 +361,8 @@
         <div class="header-content">
             <a href="index.html" class="logo">MH</a>
             <nav class="nav" id="nav">
-                <a href="index.html#about">Über mich</a>
-                <a href="index.html#skills">Skills</a>
-                <a href="erfahrung.html" class="active">Erfahrung</a>
+                <a href="index.html">Home</a>
+                <a href="erfahrung.html" class="active">Berufserfahrung</a>
                 <a href="ausbildung.html">Ausbildung</a>
                 <a href="zertifikate.html">Zertifikate</a>
                 <a href="reisen.html">Reisen</a>
@@ -484,6 +483,23 @@
 
         // Initiale Ausführung
         updateHeader();
+
+        // Immer nach oben scrollen beim Laden der Seite
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+
+        // Browser-Scroll-Wiederherstellung deaktivieren
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        // Zusätzlicher Fallback für Page Load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
 
         // Keyboard Navigation Support
         document.addEventListener('keydown', (e) => {
