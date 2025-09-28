@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reisen - Manuel Hänni</title>
+    <meta name="description" content="Reisen und Abenteuer von Manuel Hänni - Interrail durch Europa und Backpacking in Südostasien.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Pastell-Farbpalette */
+            --pastel-blue: #E8F2FF;
+            --pastel-mint: #E8F8F5;
+            --pastel-rose: #FDF2F8;
+            --pastel-sand: #FDF8F2;
+            --pastel-lavender: #F3E8FF;
+            
+            /* Akzentfarben */
+            --accent-blue: #3B82F6;
+            --accent-mint: #10B981;
+            --accent-rose: #EC4899;
+            --accent-sand: #F59E0B;
+            --accent-lavender: #8B5CF6;
+            
+            /* Grautöne */
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            
+            /* Typografie */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            
+            /* Spacing */
+            --section-padding: 5rem 0;
+            --container-max-width: 1200px;
+            --container-padding: 1.5rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Transitions */
+            --transition: all 0.2s ease-in-out;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--gray-700);
+            background-color: white;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-100);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem var(--container-padding);
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-mint));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            font-size: 1rem;
+            box-shadow: var(--shadow-md);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--accent-blue);
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            border-radius: var(--radius-full);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray-600);
+            cursor: pointer;
+        }
+
+        /* Page Hero Section */
+        .page-hero {
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-mint));
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1E3A8A;
+            margin-bottom: 1rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: var(--section-padding);
+            background: white;
+        }
+
+        /* Travel Grid */
+        .travel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .travel-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .travel-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .travel-header {
+            padding: 1.5rem 1.5rem 1rem;
+            text-align: center;
+        }
+
+        .travel-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .travel-header p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        .travel-map {
+            position: relative;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .europe-map {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('assets/europa-karte.jpg');
+        }
+
+        .asia-map {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('assets/asien-karte.jpg');
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .travel-card:hover .map-overlay {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .map-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .map-overlay h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .map-overlay p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            border-radius: var(--radius-lg);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--accent-blue);
+            border: none;
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--gray-700);
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-50);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .travel-footer {
+            padding: 1rem 1.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        /* Travel Info Section */
+        .travel-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .travel-info-card {
+            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-mint));
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            max-width: 500px;
+        }
+
+        .travel-info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .travel-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .travel-info-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+        }
+
+        .travel-info-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .travel-info-card .btn {
+            background: white;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+        }
+
+        .travel-info-card .btn:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-800);
+            color: var(--gray-300);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            :root {
+                --container-padding: 1rem;
+            }
+
+            .nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-lg);
+                border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+                display: none;
+            }
+
+            .nav.show {
+                display: flex;
+            }
+
+            .nav a {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--gray-100);
+            }
+
+            .nav a:last-child {
+                border-bottom: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .travel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .travel-info-card {
+                padding: 2rem 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .travel-header {
+                padding: 1rem;
+            }
+
+            .travel-map {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">MH</a>
+            <nav class="nav" id="nav">
+                <a href="index.html">Home</a>
+                <a href="erfahrung.html">Berufserfahrung</a>
+                <a href="ausbildung.html">Ausbildung</a>
+                <a href="zertifikate.html">Zertifikate</a>
+                <a href="reisen.html" class="active">Reisen</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Reisen</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="travel-grid">
+                <div class="travel-card">
+                    <div class="travel-header">
+                        <h3>Interrail Abenteuer</h3>
+                        <p>Interrail durch Europa</p>
+                    </div>
+                    <div class="travel-map europe-map">
+                        <div class="map-overlay">
+                            <div class="map-icon">🚄</div>
+                            <h4>Europa Rundreise</h4>
+                            <p>Mehrere Länder • Zug-Abenteuer</p>
+                            <a href="https://www.polarsteps.com/ManuelHaenni/11186343-interrail?s=47A0961D-DFCE-43E6-A704-3C87189A1E8A" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                Reise anschauen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="travel-footer">
+                        <a href="https://www.polarsteps.com/ManuelHaenni/11186343-interrail?s=47A0961D-DFCE-43E6-A704-3C87189A1E8A" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+                            Details ansehen
+                        </a>
+                    </div>
+                </div>
+
+                <div class="travel-card">
+                    <div class="travel-header">
+                        <h3>Südostasien Trip</h3>
+                        <p>Abenteuer in Asien mit Manu</p>
+                    </div>
+                    <div class="travel-map asia-map">
+                        <div class="map-overlay">
+                            <div class="map-icon">🌏</div>
+                            <h4>Asien Abenteuer</h4>
+                            <p>Südostasien • Backpacking</p>
+                            <a href="https://www.polarsteps.com/ManuelHaenni/8115868-sudostasien-trip-mit-manu?s=7CB507AB-043C-47B3-B6EB-2FED25BE2C78" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                Reise anschauen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="travel-footer">
+                        <a href="https://www.polarsteps.com/ManuelHaenni/8115868-sudostasien-trip-mit-manu?s=7CB507AB-043C-47B3-B6EB-2FED25BE2C78" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+                            Details ansehen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>&copy; 2025 Manuel Hänni. Alle Rechte vorbehalten.</div>
+                <div class="footer-links">
+                    <a href="index.html">Start</a>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header-Hintergrund beim Scrollen
+        function updateHeader() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        }
+
+        // Scroll-Events
+        window.addEventListener('scroll', updateHeader);
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const nav = document.getElementById('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('show');
+            mobileMenuBtn.textContent = nav.classList.contains('show') ? '✕' : '☰';
+        });
+
+        // Mobile Menu schließen beim Klick auf Link
+        const navLinks = document.querySelectorAll('.nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    nav.classList.remove('show');
+                    mobileMenuBtn.textContent = '☰';
+                }
+            });
+        });
+
+        // Initiale Ausführung
+        updateHeader();
+
+        // Immer nach oben scrollen beim Laden der Seite
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+
+        // Browser-Scroll-Wiederherstellung deaktivieren
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        // Zusätzlicher Fallback für Page Load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
+
+        // Keyboard Navigation Support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+    </script>
+</body>
+</html>
