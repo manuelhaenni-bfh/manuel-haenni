@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erfahrung - Manuel Hänni</title>
+    <title>Berufserfahrung - Manuel Hänni</title>
     <meta name="description" content="Berufserfahrung von Manuel Hänni - Von der Valiant Bank bis zur Universität Bern.">
     
     <!-- Google Fonts -->
@@ -159,38 +159,26 @@
             cursor: pointer;
         }
 
-        /* Main Content */
-        .main-content {
-            padding-top: 100px;
-            min-height: 100vh;
-        }
-
-        .page-header {
+        /* Page Hero Section */
+        .page-hero {
             background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-mint));
-            padding: 4rem 0;
+            padding: 8rem 0 4rem;
             text-align: center;
         }
 
-        .page-title {
+        .page-hero h1 {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--gray-800);
+            color: #1E3A8A;
             margin-bottom: 1rem;
         }
 
-        .page-subtitle {
-            font-size: 1.25rem;
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Experience Section */
-        .experience {
+        /* Main Content */
+        .main-content {
             padding: var(--section-padding);
-            background: white;
         }
 
+        /* Timeline */
         .timeline {
             max-width: 800px;
             margin: 0 auto;
@@ -334,7 +322,7 @@
                 display: block;
             }
 
-            .page-title {
+            .page-hero h1 {
                 font-size: 2.5rem;
             }
 
@@ -357,19 +345,13 @@
         }
 
         @media (max-width: 480px) {
-            .page-title {
+            .page-hero h1 {
                 font-size: 2rem;
             }
 
             .timeline-card {
                 padding: 1.5rem;
             }
-        }
-
-        /* Keyboard Navigation Styles */
-        body.keyboard-navigation *:focus {
-            outline: 2px solid var(--accent-blue);
-            outline-offset: 2px;
         }
     </style>
 </head>
@@ -379,7 +361,7 @@
         <div class="header-content">
             <a href="index.html" class="logo">MH</a>
             <nav class="nav" id="nav">
-                <a href="index.html">Über mich</a>
+                <a href="index.html#about">Über mich</a>
                 <a href="index.html#skills">Skills</a>
                 <a href="erfahrung.html" class="active">Erfahrung</a>
                 <a href="ausbildung.html">Ausbildung</a>
@@ -391,68 +373,64 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title">Berufserfahrung</h1>
-                <p class="page-subtitle">Von der kaufmännischen Lehre bis zur Assistenz an der Universität Bern</p>
-            </div>
-        </section>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Berufserfahrung</h1>
+        </div>
+    </section>
 
-        <!-- Experience Section -->
-        <section class="experience">
-            <div class="container">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-bullet"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-date">November 2025 – heute</div>
-                            <h3 class="timeline-title">Hilfsassistent</h3>
-                            <div class="timeline-company">Institut für Wirtschaftsinformatik, Universität Bern</div>
-                            <p class="timeline-description">
-                                Unterstützung in Forschung und Lehre am Institut für Wirtschaftsinformatik mit Fokus auf digitale Transformation und Business-Analytics.
-                            </p>
-                        </div>
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-bullet"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">November 2025 – heute</div>
+                        <h3 class="timeline-title">Hilfsassistent</h3>
+                        <div class="timeline-company">Institut für Wirtschaftsinformatik, Universität Bern</div>
+                        <p class="timeline-description">
+                            Unterstützung in Forschung und Lehre am Institut für Wirtschaftsinformatik mit Fokus auf digitale Transformation und Business-Analytics.
+                        </p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-bullet"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-date">2024 – 2025</div>
-                            <h3 class="timeline-title">Stellvertretungen</h3>
-                            <div class="timeline-company">Schule Lützelflüh</div>
-                            <p class="timeline-description">
-                                Übernahme von Stellvertretungen.
-                            </p>
-                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-bullet"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">2024 – 2025</div>
+                        <h3 class="timeline-title">Stellvertretungen</h3>
+                        <div class="timeline-company">Schule Lützelflüh</div>
+                        <p class="timeline-description">
+                            Übernahme von Stellvertretungen.
+                        </p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-bullet"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-date">2021 – 2023</div>
-                            <h3 class="timeline-title">Produktmanagement (Teilzeit)</h3>
-                            <div class="timeline-company">Valiant Bank</div>
-                            <p class="timeline-description">
-                                Administrative Tätigkeiten, Mitarbeit in kleineren Projekten und Datenpflege im Bereich Produktmanagement. Unterstützung bei der Weiterentwicklung von Bankprodukten und -services.
-                            </p>
-                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-bullet"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">2021 – 2023</div>
+                        <h3 class="timeline-title">Produktmanagement (Teilzeit)</h3>
+                        <div class="timeline-company">Valiant Bank</div>
+                        <p class="timeline-description">
+                            Administrative Tätigkeiten, Mitarbeit in kleineren Projekten und Datenpflege im Bereich Produktmanagement. Unterstützung bei der Weiterentwicklung von Bankprodukten und -services.
+                        </p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-bullet"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-date">2018 – 2021</div>
-                            <h3 class="timeline-title">Kaufmännische Lehre</h3>
-                            <div class="timeline-company">Valiant Bank</div>
-                            <p class="timeline-description">
-                                Kundenberatung, Organisation und Abwicklung von Bankgeschäften. Fundament für praktische Erfahrungen im Finanzwesen und Kundenservice.
-                            </p>
-                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-bullet"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">2018 – 2021</div>
+                        <h3 class="timeline-title">Kaufmännische Lehre</h3>
+                        <div class="timeline-company">Valiant Bank</div>
+                        <p class="timeline-description">
+                            Kundenberatung, Organisation und Abwicklung von Bankgeschäften. Fundament für praktische Erfahrungen im Finanzwesen und Kundenservice.
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -460,8 +438,9 @@
             <div class="footer-content">
                 <div>&copy; 2025 Manuel Hänni. Alle Rechte vorbehalten.</div>
                 <div class="footer-links">
-                    <a href="#impressum">Impressum</a>
-                    <a href="#datenschutz">Datenschutz</a>
+                    <a href="index.html">Start</a>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
                 </div>
             </div>
         </div>
