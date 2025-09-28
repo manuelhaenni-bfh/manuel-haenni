@@ -193,6 +193,7 @@
             box-shadow: var(--shadow-md);
             overflow: hidden;
             transition: var(--transition);
+            border-top: 1px solid var(--gray-800);
         }
 
         .travel-card:hover {
@@ -322,6 +323,28 @@
         .btn-small {
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
+        }
+
+        /* Follow Section */
+        .follow-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .btn-follow {
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.75rem 2rem;
+            font-size: 0.9rem;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-follow:hover {
+            background: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         /* Travel Info Section */
@@ -507,14 +530,13 @@
             <div class="travel-grid">
                 <div class="travel-card">
                     <div class="travel-header">
-                        <h3>Interrail Abenteuer</h3>
-                        <p>Interrail durch Europa</p>
+                        <h3>Interrail durch Europa</h3>
                     </div>
                     <div class="travel-map europe-map">
                         <div class="map-overlay">
                             <div class="map-icon">🚄</div>
                             <h4>Europa Rundreise</h4>
-                            <p>Mehrere Länder • Zug-Abenteuer</p>
+                            <p>Europa • Zug-Abenteuer</p>
                             <a href="https://www.polarsteps.com/ManuelHaenni/11186343-interrail?s=47A0961D-DFCE-43E6-A704-3C87189A1E8A" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                                 Reise anschauen
                             </a>
@@ -525,7 +547,6 @@
                 <div class="travel-card">
                     <div class="travel-header">
                         <h3>Südostasien Trip</h3>
-                        <p>Abenteuer in Asien mit Manu</p>
                     </div>
                     <div class="travel-map asia-map">
                         <div class="map-overlay">
@@ -538,6 +559,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Follow Button -->
+            <div class="follow-section">
+                <a href="https://www.polarsteps.com/ManuelHaenni" target="_blank" rel="noopener noreferrer" class="btn btn-follow">
+                    Auf Polarsteps folgen
+                </a>
             </div>
         </div>
     </section>
