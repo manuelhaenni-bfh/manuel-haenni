@@ -399,9 +399,34 @@
             100% { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
         }
 
-        /* About Section */
+        /* Snowflake Animation */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #ffffff;
+            font-size: 1em;
+            animation-name: snowfall;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         .about {
-            background: var(--gray-50);
+            position: relative;
+            overflow: hidden;
         }
 
         .about-content {
@@ -768,7 +793,7 @@
                     Ich studiere Digital Business und AI und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik der Universität Bern. Neben meinem Interesse an der Verbindung von Wirtschaft und Technologie spiele ich gerne Fussball und lebe in einer WG in Bern.
                 </p>
                 <div class="hobbies">
-                    <span class="hobby-tag" onclick="animateHobby(this, 'football')">
+                    <span class="hobby-tag" onclick="triggerFootballAnimation()">
                         <span class="hobby-emoji">⚽</span> Fussball (<a href="https://fclangnau.ch/teams/1-mannschaft" target="_blank" rel="noopener noreferrer" class="hobby-link" onclick="event.stopPropagation()">FC Langnau</a>)
                     </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'tennis')">
@@ -973,21 +998,77 @@
             }, 100);
         });
 
+        // Create snowflake animation for skiing
+        function createSnowflakes() {
+            const aboutSection = document.querySelector('.about');
+            const snowflakeSymbols = ['❄️', '❅', '❆'];
+            
+            // Create multiple snowflakes
+            for (let i = 0; i < 15; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+                
+                // Random positioning and timing
+                const leftPosition = Math.random() * 100;
+                const animationDuration = 3 + Math.random() * 2; // 3-5 seconds
+                const fontSize = 0.8 + Math.random() * 0.7; // 0.8-1.5em
+                const delay = Math.random() * 2; // 0-2 second delay
+                
+                snowflake.style.left = leftPosition + '%';
+                snowflake.style.fontSize = fontSize + 'em';
+                snowflake.style.animationDuration = animationDuration + 's';
+                snowflake.style.animationDelay = delay + 's';
+                
+                aboutSection.appendChild(snowflake);
+                
+                // Remove snowflake after animation
+                setTimeout(() => {
+                    if (snowflake.parentNode) {
+                        snowflake.parentNode.removeChild(snowflake);
+                    }
+                }, (animationDuration + delay) * 1000);
+            }
+        }
+
+        // Separate function for football animation
+        function triggerFootballAnimation() {
+            console.log('Football clicked!'); // Debug
+            
+            // Normal hobby animation
+            const footballTag = document.querySelector('.hobby-tag');
+            const emoji = footballTag.querySelector('.hobby-emoji');
+            emoji.classList.add('animate-football');
+            
+            // Large football animation
+            const largeFootball = document.getElementById('largeFootball');
+            console.log('Large football element:', largeFootball); // Debug
+            
+            if (largeFootball) {
+                largeFootball.classList.add('rolling');
+                console.log('Added rolling class'); // Debug
+                
+                // Remove animation class after completion
+                setTimeout(() => {
+                    largeFootball.classList.remove('rolling');
+                    console.log('Removed rolling class'); // Debug
+                }, 3000);
+            }
+            
+            setTimeout(() => {
+                emoji.classList.remove('animate-football');
+            }, 1200);
+        }
+
         // Hobby Animation Function
         function animateHobby(element, type) {
             const emoji = element.querySelector('.hobby-emoji');
             emoji.classList.remove('animate-football', 'animate-tennis', 'animate-hiking', 'animate-travel', 'animate-skiing', 'animate-diving', 'animate-cooking');
             emoji.classList.add('animate-' + type);
             
-            // Special football animation - large ball rolls across screen
-            if (type === 'football') {
-                const largeFootball = document.getElementById('largeFootball');
-                largeFootball.classList.add('rolling');
-                
-                // Remove animation class after completion
-                setTimeout(() => {
-                    largeFootball.classList.remove('rolling');
-                }, 3000);
+            // Special skiing animation - snowflakes fall
+            if (type === 'skiing') {
+                createSnowflakes();
             }
             
             setTimeout(() => {
