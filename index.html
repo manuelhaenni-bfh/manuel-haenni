@@ -1001,13 +1001,12 @@
         // Create snowflake animation for skiing
         function createSnowflakes() {
             const aboutSection = document.querySelector('.about');
-            const snowflakeSymbols = ['❄️', '❅', '❆'];
             
             // Create multiple snowflakes
             for (let i = 0; i < 15; i++) {
                 const snowflake = document.createElement('div');
                 snowflake.className = 'snowflake';
-                snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+                snowflake.innerHTML = '❄️';
                 
                 // Random positioning and timing
                 const leftPosition = Math.random() * 100;
