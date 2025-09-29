@@ -768,9 +768,9 @@
                     Ich studiere Digital Business und AI und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik der Universität Bern. Neben meinem Interesse an der Verbindung von Wirtschaft und Technologie spiele ich gerne Fussball und lebe in einer WG in Bern.
                 </p>
                 <div class="hobbies">
-                    <a href="https://fclangnau.ch/teams/1-mannschaft" target="_blank" rel="noopener noreferrer" class="hobby-tag hobby-link" onclick="animateHobby(this, 'football'); return true;">
-                        <span class="hobby-emoji">⚽</span> Fussball (FC Langnau)
-                    </a>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'football')">
+                        <span class="hobby-emoji">⚽</span> Fussball (<a href="https://fclangnau.ch/teams/1-mannschaft" target="_blank" rel="noopener noreferrer" class="hobby-link">FC Langnau</a>)
+                    </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'tennis')">
                         <span class="hobby-emoji">🎾</span> Tennis
                     </span>
@@ -782,6 +782,9 @@
                     </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'skiing')">
                         <span class="hobby-emoji">⛷️</span> Skifahren
+                    </span>
+                    <span class="hobby-tag" onclick="animateHobby(this, 'diving')">
+                        <span class="hobby-emoji">🤿</span> Tauchen
                     </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'cooking')">
                         <span class="hobby-emoji">👨‍🍳</span> Kochen
@@ -843,6 +846,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- Large Football for Animation -->
+    <div class="large-football" id="largeFootball">⚽</div>
 
     <script>
         // Intersection Observer für Scroll-Animationen
@@ -970,8 +976,20 @@
         // Hobby Animation Function
         function animateHobby(element, type) {
             const emoji = element.querySelector('.hobby-emoji');
-            emoji.classList.remove('animate-football', 'animate-tennis', 'animate-hiking', 'animate-travel', 'animate-skiing', 'animate-cooking');
+            emoji.classList.remove('animate-football', 'animate-tennis', 'animate-hiking', 'animate-travel', 'animate-skiing', 'animate-diving', 'animate-cooking');
             emoji.classList.add('animate-' + type);
+            
+            // Special football animation - large ball rolls across screen
+            if (type === 'football') {
+                const largeFootball = document.getElementById('largeFootball');
+                largeFootball.classList.add('rolling');
+                
+                // Remove animation class after completion
+                setTimeout(() => {
+                    largeFootball.classList.remove('rolling');
+                }, 3000);
+            }
+            
             setTimeout(() => {
                 emoji.classList.remove('animate-' + type);
             }, 1200);
