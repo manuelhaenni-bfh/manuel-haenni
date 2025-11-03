@@ -73,12 +73,14 @@ body {
 
 /* Wetterbox Styles */
 .weather-footer {
-    justify-content: flex-end;
+    display: flex;
+    justify-content: center;
+    width: 100%;
     margin-top: 1rem;
-    text-align: center;
+    padding: 0 1rem;
 }
 .weather-info {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     justify-content: center;
@@ -87,6 +89,7 @@ body {
     border-radius: var(--radius-lg);
     box-shadow: none;
     font-size: 0.95rem;
+    margin: 0 auto;
 }
 .weather-emoji {
     font-size: 2rem;
