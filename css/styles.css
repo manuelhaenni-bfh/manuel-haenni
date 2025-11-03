@@ -892,6 +892,7 @@ section.visible {
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
     transition: var(--transition);
+    position: relative;
 }
 
 .timeline-card:hover {
@@ -1208,6 +1209,26 @@ section.visible {
 
 .toast.error {
     background: var(--accent-rose);
+}
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.btn-primary.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 /* ========================================
@@ -1780,17 +1801,29 @@ section.visible {
     }
 }
 .job-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: block;
     margin-bottom: 15px;
 }
 .company-logo {
-    width: 50px;
-    height: 50px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
     flex-shrink: 0;
-    margin-top: -25px;
-    margin-right: -15px;
-    border-radius: 50%; 
+    border-radius: 50%;
+    padding: 8px;
+    background: transparent;
+}
+.company-logo.square {
+    border-radius: 8px;
+}
+.company-logo.larger {
+    width: 130px;
+    height: 130px;
+}
+.company-logo.smaller {
+    width: 60px;
+    height: 60px;
 }

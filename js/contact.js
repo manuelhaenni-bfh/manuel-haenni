@@ -4,6 +4,16 @@
  */
 
 // ========================================
+// EMAILJS CONFIGURATION
+// ========================================
+// WICHTIG: Ersetze diese Werte mit deinen EmailJS Credentials
+const EMAILJS_CONFIG = {
+    PUBLIC_KEY: 'oBSasvsbcSAon9kVI',  // Ersetze mit deinem Public Key
+    SERVICE_ID: 'service_9lm5tgp',  // Ersetze mit deiner Service ID
+    TEMPLATE_ID: 'template_0s46a7c' // Ersetze mit deiner Template ID
+};
+
+// ========================================
 // TOAST NOTIFICATIONS
 // ========================================
 
@@ -15,11 +25,11 @@
 function showToast(message, isError = false) {
     const toast = document.getElementById('toast');
     if (!toast) return;
-    
+
     toast.textContent = message;
     toast.className = 'toast' + (isError ? ' error' : '');
     toast.classList.add('show');
-    
+
     setTimeout(() => {
         toast.classList.remove('show');
     }, 4000);
@@ -30,15 +40,37 @@ function showToast(message, isError = false) {
 // ========================================
 
 /**
+ * Set button loading state
+ * @param {HTMLButtonElement} button - Submit button
+ * @param {boolean} loading - Loading state
+ */
+function setButtonLoading(button, loading) {
+    if (loading) {
+        button.disabled = true;
+        button.dataset.originalText = button.textContent;
+        button.innerHTML = '<span class="spinner"></span> Wird gesendet...';
+        button.classList.add('loading');
+    } else {
+        button.disabled = false;
+        button.textContent = button.dataset.originalText || 'Nachricht senden';
+        button.classList.remove('loading');
+    }
+}
+
+/**
  * Initialize contact form functionality
  */
 function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
-    
-    form.addEventListener('submit', (e) => {
+
+    // Initialize EmailJS with public key
+    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
+        const submitButton = form.querySelector('button[type="submit"]');
         const formData = new FormData(e.target);
         const name = formData.get('name');
         const email = formData.get('email');
@@ -58,19 +90,34 @@ function initContactForm() {
             return;
         }
 
-        // Create mailto link
-        const subject = `Kontaktanfrage von ${name}`;
-        const body = `Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`;
-        const mailtoLink = `mailto:manuel.haenni@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
-        // Open email client
-        window.location.href = mailtoLink;
-        
-        // Show success toast
-        showToast('E-Mail-Client wird geöffnet...');
-        
-        // Reset form
-        e.target.reset();
+        // Set loading state
+        setButtonLoading(submitButton, true);
+
+        try {
+            // Send email using EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                message: message,
+                to_name: 'Manuel Hänni'
+            };
+
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                templateParams
+            );
+
+            // Success
+            showToast('Nachricht erfolgreich gesendet! Vielen Dank für Ihre Kontaktaufnahme.');
+            e.target.reset();
+
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            showToast('Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut.', true);
+        } finally {
+            setButtonLoading(submitButton, false);
+        }
     });
 }
 
