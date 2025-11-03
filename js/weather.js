@@ -19,31 +19,35 @@ function kelvinToCelsius(k) {
     return (k - 273.15).toFixed(1);
 }
 
-async function fetchWeather() {
-    const weatherBox = document.getElementById('weather-box');
-    weatherBox.innerHTML = '<div class="loading-spinner">Lade Wetterdaten...</div>';
-    try {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY}&appid=${WEATHER_API_KEY}&lang=de`;
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Fehler beim Abrufen der Wetterdaten');
-        const data = await response.json();
-        const temp = kelvinToCelsius(data.main.temp);
-        const desc = data.weather[0].description;
-        const weatherId = data.weather[0].id;
-        const emoji = getWeatherEmoji(weatherId);
-        weatherBox.innerHTML = `
-            <div class="weather-info">
-                <div class="weather-emoji">${emoji}</div>
-                <div class="weather-details">
-                    <div class="weather-temp">${temp}°C</div>
-                    <div class="weather-desc">${desc}</div>
-                    <div class="weather-city">Bern, Schweiz</div>
+function renderWeatherInHeader() {
+    const weatherHeaderBox = document.getElementById('weather-header-box');
+    if (!weatherHeaderBox) return;
+    weatherHeaderBox.innerHTML = '<div class="loading-spinner">Lade Wetter...</div>';
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY}&appid=${WEATHER_API_KEY}&lang=de`)
+        .then(response => response.json())
+        .then(data => {
+            const temp = kelvinToCelsius(data.main.temp);
+            const desc = data.weather[0].description;
+            const weatherId = data.weather[0].id;
+            const emoji = getWeatherEmoji(weatherId);
+            weatherHeaderBox.innerHTML = `
+                <div class="weather-info weather-header-compact">
+                    <div class="weather-row">
+                        <span class="weather-emoji">${emoji}</span>
+                        <span class="weather-temp">${temp}°C</span>
+                    </div>
+                    <div class="weather-row">
+                        <span class="weather-desc">${desc}</span>
+                        <span class="weather-city">Bern</span>
+                    </div>
                 </div>
-            </div>
-        `;
-    } catch (error) {
-        weatherBox.innerHTML = '<div class="error-message">Fehler beim Laden der Wetterdaten</div>';
-    }
+            `;
+        })
+        .catch(() => {
+            weatherHeaderBox.innerHTML = '<div class="error-message">Wetterdaten nicht verfügbar</div>';
+        });
 }
 
-document.addEventListener('DOMContentLoaded', fetchWeather);
+document.addEventListener('DOMContentLoaded', () => {
+    renderWeatherInHeader();
+});

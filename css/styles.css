@@ -1,3 +1,76 @@
+.weather-header-compact {
+    flex-direction: column;
+    gap: 0.1rem;
+    align-items: flex-start;
+}
+.weather-header-compact .weather-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.weather-header-compact .weather-emoji {
+    font-size: 1.5rem;
+    margin-right: 0.2rem;
+}
+.weather-header-compact .weather-temp {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+.weather-header-compact .weather-desc {
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    text-transform: capitalize;
+}
+.weather-header-compact .weather-city {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+}
+/* Wetter im Header */
+.weather-header-box {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    margin: 0 2rem;
+    min-width: 120px;
+    height: 48px;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+.weather-header-box .weather-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+.weather-header-box .weather-emoji {
+    font-size: 1.7rem;
+    margin-right: 0.5rem;
+}
+.weather-header-box .weather-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+}
+.weather-header-box .weather-temp {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+.weather-header-box .weather-desc {
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    text-transform: capitalize;
+}
+.weather-header-box .weather-city {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+}
 /* ========================================
    Manuel Hänni - Website Styles
    ======================================== */
