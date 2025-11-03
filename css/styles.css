@@ -1687,6 +1687,30 @@ section.visible {
 
     .timeline-card {
         padding: 1.5rem;
+        padding-right: 5rem;
+    }
+
+    .timeline-title {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        padding-right: 0.5rem;
+    }
+
+    .company-logo {
+        width: 60px;
+        height: 60px;
+        top: 1rem;
+        right: 0.5rem;
+    }
+
+    .company-logo.larger {
+        width: 80px;
+        height: 80px;
+    }
+
+    .company-logo.smaller {
+        width: 50px;
+        height: 50px;
     }
 
     .contact-content {
