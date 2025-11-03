@@ -72,52 +72,65 @@ body {
 
 
 /* Wetterbox Styles */
-.weather-footer {
+.weather-section {
+    width: 100%;
     display: flex;
     justify-content: center;
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0 1rem;
-}
-.weather-info {
-    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    justify-content: center;
-    background: none;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-lg);
-    box-shadow: none;
-    font-size: 0.95rem;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.weather-container {
+    text-align: center;
+    max-width: 300px;
     margin: 0 auto;
 }
-.weather-emoji {
-    font-size: 2rem;
-    line-height: 1;
-    margin-right: 0.5rem;
+
+.weather-container h2 {
+    font-size: 1.1rem;
+    color: var(--gray-700);
+    margin-bottom: 1rem;
 }
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--gray-50);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.weather-emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
 .weather-details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.2rem;
 }
+
 .weather-temp {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--accent-blue);
 }
+
 .weather-desc {
     font-size: 0.95rem;
     color: var(--gray-700);
     text-transform: capitalize;
 }
+
 .weather-city {
     font-size: 0.85rem;
     color: var(--gray-500);
-}
-.weather-section {
-    margin-bottom: 4rem; /* oder dein gewünschter Wert */
 }
 
 .container {
