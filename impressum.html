@@ -50,10 +50,10 @@
                 <p>E-Mail: <a href="mailto:manuel.haenni@students.unibe.ch">manuel.haenni@students.unibe.ch</a></p>
 
                 <h3>Haftungsausschluss</h3>
-                <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehme ich jedoch keine Gewähr.</p>
+                <p>Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehme ich jedoch keine Gewähr.</p>
 
                 <h3>Urheberrecht</h3>
-                <p>Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung.</p>
+                <p>Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung.</p>
 
                 <h3>Links auf externe Websites</h3>
                 <p>Diese Website enthält Links zu externen Websites Dritter. Auf die Inhalte dieser verlinkten Webseiten habe ich keinen Einfluss. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
@@ -76,5 +76,22 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script>
+        // Mobile Menu Funktionalität
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('nav').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Header Scroll Effekt
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>

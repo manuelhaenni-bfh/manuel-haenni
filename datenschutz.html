@@ -89,5 +89,22 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script>
+        // Mobile Menu Funktionalität
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('nav').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Header Scroll Effekt
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>

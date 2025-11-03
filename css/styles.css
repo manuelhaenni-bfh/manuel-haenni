@@ -335,6 +335,37 @@ section.visible {
     margin: 0 auto;
 }
 
+/* Responsive Styles for Legal Pages */
+@media (max-width: 768px) {
+    .legal-section {
+        padding: 2rem 1rem;
+    }
+
+    .legal-content {
+        padding: 1.5rem;
+    }
+
+    .legal-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .legal-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .legal-content h4 {
+        font-size: 1rem;
+    }
+
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+
+    .page-hero p {
+        font-size: 1.1rem;
+    }
+}
+
 /* ========================================
    HERO SECTION (Homepage)
    ======================================== */
