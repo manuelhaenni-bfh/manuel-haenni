@@ -70,9 +70,52 @@ body {
     overflow-x: hidden;
 }
 
-/* ========================================
-   LAYOUT - Container
-   ======================================== */
+
+/* Wetterbox Styles */
+.weather-footer {
+    justify-content: flex-end;
+    margin-top: 1rem;
+    text-align: center;
+}
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    background: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-lg);
+    box-shadow: none;
+    font-size: 0.95rem;
+}
+.weather-emoji {
+    font-size: 2rem;
+    line-height: 1;
+    margin-right: 0.5rem;
+}
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+}
+.weather-temp {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+.weather-desc {
+    font-size: 0.95rem;
+    color: var(--gray-700);
+    text-transform: capitalize;
+}
+.weather-city {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+}
+.weather-section {
+    margin-bottom: 4rem; /* oder dein gewünschter Wert */
+}
 
 .container {
     max-width: var(--container-max-width);
