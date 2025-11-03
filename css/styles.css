@@ -1713,6 +1713,11 @@ section.visible {
         height: 50px;
     }
 
+    /* Show line break on mobile */
+    .mobile-br {
+        display: inline;
+    }
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1850,4 +1855,9 @@ section.visible {
 .company-logo.smaller {
     width: 60px;
     height: 60px;
+}
+
+/* Mobile line break - hide on desktop */
+.mobile-br {
+    display: none;
 }
