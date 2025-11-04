@@ -343,7 +343,9 @@ body {
     height: 40px;
     min-width: 40px;
     min-height: 40px;
-    background: linear-gradient(135deg, #0A1E42, #3B82F6);
+    background: linear-gradient(135deg, #0A1E42, #3B82F6, #0A1E42, #3B82F6);
+    background-size: 300% 300%;
+    animation: gradientMove 4s ease infinite;
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
@@ -354,6 +356,20 @@ body {
     box-shadow: var(--shadow-md);
     text-decoration: none;
     flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .nav {
