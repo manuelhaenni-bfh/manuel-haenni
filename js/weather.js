@@ -36,13 +36,15 @@ function renderWeatherInHeader() {
                     <div class="weather-main-display">
                         <span class="weather-emoji">${emoji}</span>
                         <span class="weather-temp">${temp}°C</span>
-                        <span class="weather-city">Bern, Schweiz</span>
+                        <span class="weather-city"></span>
                     </div>
                     <div class="weather-details-hover">
                         <div class="weather-desc">${desc}</div>
                     </div>
                 </div>
             `;
+            // Update weather city with current language
+            updateWeatherLanguage();
         })
         .catch(() => {
             weatherHeaderBox.innerHTML = '<div class="error-message">Wetterdaten nicht verfügbar</div>';

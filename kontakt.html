@@ -16,23 +16,34 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-content">
-            <a href="index.html" class="logo">MH</a>
-            <div id="weather-header-box" class="weather-header-box"></div>
-            <nav class="nav" id="nav">
-                <a href="index.html">Home</a>
-                <a href="erfahrung.html">Berufserfahrung</a>
-                <a href="ausbildung.html">Ausbildung</a>
-                <a href="zertifikate.html">Zertifikate</a>
-                <a href="kontakt.html" class="active">Kontakt</a>
-            </nav>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            <div class="header-left">
+                <a href="index.html" class="logo">MH</a>
+                <div class="lang-switcher" id="lang-switcher">
+                    <span class="lang-option active" data-lang="de">DE</span>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-option" data-lang="en">EN</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div id="weather-header-box" class="weather-header-box"></div>
+            </div>
+            <div class="header-right">
+                <nav class="nav" id="nav">
+                    <a href="index.html" data-i18n="nav_home">Home</a>
+                    <a href="erfahrung.html" data-i18n="nav_experience">Berufserfahrung</a>
+                    <a href="ausbildung.html" data-i18n="nav_education">Ausbildung</a>
+                    <a href="zertifikate.html" data-i18n="nav_certificates">Zertifikate</a>
+                    <a href="kontakt.html" class="active" data-i18n="nav_contact">Kontakt</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            </div>
         </div>
     </header>
 
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1>Kontakt</h1>
+            <h1 data-i18n="contact_title">Kontakt</h1>
         </div>
     </section>
 
@@ -42,31 +53,31 @@
             <div class="contact-content">
                 <form class="contact-form" id="contact-form">
                     <div class="form-group">
-                        <label for="name" class="form-label">Name *</label>
+                        <label for="name" class="form-label" data-i18n="contact_form_name">Name *</label>
                         <input type="text" id="name" name="name" class="form-input" required>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="form-label">E-Mail *</label>
+                        <label for="email" class="form-label" data-i18n="contact_form_email">E-Mail *</label>
                         <input type="email" id="email" name="email" class="form-input" required>
                     </div>
                     <div class="form-group">
-                        <label for="message" class="form-label">Nachricht *</label>
-                        <textarea id="message" name="message" class="form-textarea" required placeholder="Ihre Nachricht..."></textarea>
+                        <label for="message" class="form-label" data-i18n="contact_form_message">Nachricht *</label>
+                        <textarea id="message" name="message" class="form-textarea" required data-i18n="contact_form_message" placeholder="Ihre Nachricht..."></textarea>
                     </div>
                     <div class="form-checkbox">
                         <input type="checkbox" id="privacy" name="privacy" required>
-                        <label for="privacy">Ich stimme zu, dass meine Angaben zur Kontaktaufnahme gespeichert werden.</label>
+                        <label for="privacy" data-i18n="contact_form_privacy">Ich stimme zu, dass meine Angaben zur Kontaktaufnahme gespeichert werden.</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Nachricht senden</button>
+                    <button type="submit" class="btn btn-primary" data-i18n="contact_form_submit">Nachricht senden</button>
                 </form>
                 
                 <div class="contact-info">
                     <div class="contact-details">
-                        <h3>Kontaktinformationen</h3>
+                        <h3 data-i18n="contact_info_title">Kontaktinformationen</h3>
                         <div class="contact-item">
                             <div class="contact-icon">📧</div>
                             <div class="contact-text">
-                                <div class="label">E-Mail</div>
+                                <div class="label" data-i18n="contact_label_email">E-Mail</div>
                                 <div class="value">
                                     <a href="mailto:manuel.haenni@icloud.com">manuel.haenni@icloud.com</a>
                                 </div>
@@ -75,7 +86,7 @@
                         <div class="contact-item">
                             <div class="contact-icon">📱</div>
                             <div class="contact-text">
-                                <div class="label">Telefon</div>
+                                <div class="label" data-i18n="contact_label_phone">Telefon</div>
                                 <div class="value">
                                     <a href="tel:+41794803393">+41 79 480 33 93</a>
                                 </div>
@@ -84,7 +95,7 @@
                         <div class="contact-item">
                             <div class="contact-icon">💼</div>
                             <div class="contact-text">
-                                <div class="label">LinkedIn</div>
+                                <div class="label" data-i18n="contact_label_linkedin">LinkedIn</div>
                                 <div class="value">
                                     <a href="https://www.linkedin.com/in/manuel-h%C3%A4nni-634906330/" target="_blank" rel="noopener noreferrer">LinkedIn Profil</a>
                                 </div>
@@ -93,7 +104,7 @@
                         <div class="contact-item">
                             <div class="contact-icon">📷</div>
                             <div class="contact-text">
-                                <div class="label">Instagram</div>
+                                <div class="label" data-i18n="contact_label_instagram">Instagram</div>
                                 <div class="value">
                                     <a href="https://www.instagram.com/m_haenni/" target="_blank" rel="noopener noreferrer">@m_haenni</a>
                                 </div>
@@ -102,15 +113,15 @@
                         <div class="contact-item">
                             <div class="contact-icon">📍</div>
                             <div class="contact-text">
-                                <div class="label">Standort</div>
-                                <div class="value">Bern, Schweiz</div>
+                                <div class="label" data-i18n="contact_label_location">Standort</div>
+                                <div class="value" data-i18n="contact_location_value">Bern, Schweiz</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Google Maps -->
                     <div class="contact-map-section">
-                        <h3>Standort BFH Marzili</h3>
+                        <h3 data-i18n="contact_map_title">Standort BFH Marzili</h3>
                         <div class="contact-map">
                             <div id="map"></div>
                         </div>
@@ -124,11 +135,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div>&copy; 2025 Manuel Hänni. Alle Rechte vorbehalten.</div>
+                <div>&copy; 2025 Manuel Hänni. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
                 <div class="footer-links">
-                    <a href="index.html">Start</a>
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="index.html" data-i18n="footer_start">Start</a>
+                    <a href="impressum.html" data-i18n="footer_imprint">Impressum</a>
+                    <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a>
                 </div>
             </div>
         </div>
@@ -143,6 +154,7 @@
     <script src="js/contact.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/maps.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIKPUWYT2SI5blBxbIsvm2FBxC9wMHuUg&callback=initMap" async defer></script>
 </body>
 </html>

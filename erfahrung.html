@@ -16,23 +16,34 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-content">
-            <a href="index.html" class="logo">MH</a>
-            <div id="weather-header-box" class="weather-header-box"></div>
-            <nav class="nav" id="nav">
-                <a href="index.html">Home</a>
-                <a href="erfahrung.html" class="active">Berufserfahrung</a>
-                <a href="ausbildung.html">Ausbildung</a>
-                <a href="zertifikate.html">Zertifikate</a>
-                <a href="kontakt.html">Kontakt</a>
-            </nav>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            <div class="header-left">
+                <a href="index.html" class="logo">MH</a>
+                <div class="lang-switcher" id="lang-switcher">
+                    <span class="lang-option active" data-lang="de">DE</span>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-option" data-lang="en">EN</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div id="weather-header-box" class="weather-header-box"></div>
+            </div>
+            <div class="header-right">
+                <nav class="nav" id="nav">
+                    <a href="index.html" data-i18n="nav_home">Home</a>
+                    <a href="erfahrung.html" class="active" data-i18n="nav_experience">Berufserfahrung</a>
+                    <a href="ausbildung.html" data-i18n="nav_education">Ausbildung</a>
+                    <a href="zertifikate.html" data-i18n="nav_certificates">Zertifikate</a>
+                    <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            </div>
         </div>
     </header>
 
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1>Berufserfahrung</h1>
+            <h1 data-i18n="experience_title">Berufserfahrung</h1>
         </div>
     </section>
 
@@ -43,15 +54,15 @@
             <div class="timeline-item">
                 <div class="timeline-bullet"></div>
                 <div class="timeline-card">
-                    <div class="timeline-date">November 2025 – heute</div>
+                    <div class="timeline-date">November 2025 – <span data-i18n="experience_present">heute</span></div>
                     <div class="job-header">
                         <div>
-                            <h3 class="timeline-title">Hilfsassistent</h3>
-                            <div class="timeline-company">Institut für Wirtschaftsinformatik, Universität Bern</div>
+                            <h3 class="timeline-title" data-i18n="job_research_assistant">Hilfsassistent</h3>
+                            <div class="timeline-company" data-i18n="company_unibern">Institut für Wirtschaftsinformatik, Universität Bern</div>
                         </div>
                         <img src="assets/Uni-Bern-Logo.jpg" alt="Universität Bern Logo" class="company-logo smaller">
                     </div>
-                    <p class="timeline-description">
+                    <p class="timeline-description" data-i18n="job_research_desc">
                         Unterstützung der administrativen Abläufe am Institut für Wirtschaftsinformatik der Universität Bern mit Fokus auf Personal- und Finanzmanagement, Eventorganisation und digitale Informationsverwaltung.
                     </p>
                 </div>
@@ -62,12 +73,12 @@
                         <div class="timeline-date">2024 – 2025</div>
                         <div class="job-header">
                             <div>
-                                <h3 class="timeline-title">Stellvertretungen</h3>
-                                <div class="timeline-company">Schule Lützelflüh</div>
+                                <h3 class="timeline-title" data-i18n="job_substitute">Stellvertretungen</h3>
+                                <div class="timeline-company" data-i18n="company_luetzelfluh">Schule Lützelflüh</div>
                             </div>
                             <img src="assets/schule_luetzu-logo.png" alt="Schule Lützelflüh Logo" class="company-logo square larger">
                         </div>
-                        <p class="timeline-description">
+                        <p class="timeline-description" data-i18n="job_substitute_desc">
                             Übernahme von Stellvertretungen.
                         </p>
                     </div>
@@ -78,12 +89,12 @@
                         <div class="timeline-date">2021 – 2023</div>
                         <div class="job-header">
                             <div>
-                                <h3 class="timeline-title">Praktikant Produktmanagement</h3>
-                                <div class="timeline-company">Valiant Bank</div>
+                                <h3 class="timeline-title" data-i18n="job_product_intern">Praktikant Produktmanagement</h3>
+                                <div class="timeline-company" data-i18n="company_valiant">Valiant Bank</div>
                             </div>
                         <img src="assets/Valiant_Logo.png" alt="Valiant Bank Logo" class="company-logo">
                     </div>
-                        <p class="timeline-description">
+                        <p class="timeline-description" data-i18n="job_product_desc">
                             Administrative Tätigkeiten, Mitarbeit in kleineren Projekten und Datenpflege im Bereich Produktmanagement. Unterstützung bei der Weiterentwicklung von Bankprodukten und -services.
                         </p>
                     </div>
@@ -94,12 +105,12 @@
                         <div class="timeline-date">2018 – 2021</div>
                         <div class="job-header">
                             <div>
-                                <h3 class="timeline-title">Kaufmännische Lehre</h3>
-                                <div class="timeline-company">Valiant Bank</div>
+                                <h3 class="timeline-title" data-i18n="job_apprentice">Kaufmännische Lehre</h3>
+                                <div class="timeline-company" data-i18n="company_valiant">Valiant Bank</div>
                             </div>
                         <img src="assets/Valiant_Logo.png" alt="Valiant Bank Logo" class="company-logo">
                     </div>
-                    <p class="timeline-description">
+                    <p class="timeline-description" data-i18n="job_apprentice_desc">
                         Kundenberatung, Organisation und Abwicklung von Bankgeschäften. Fundament für praktische Erfahrungen im Finanzwesen und Kundenservice.
                     </p>
                 </div>
@@ -112,11 +123,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div>&copy; 2025 Manuel Hänni. Alle Rechte vorbehalten.</div>
+                <div>&copy; 2025 Manuel Hänni. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
                 <div class="footer-links">
-                    <a href="index.html">Start</a>
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="index.html" data-i18n="footer_start">Start</a>
+                    <a href="impressum.html" data-i18n="footer_imprint">Impressum</a>
+                    <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a>
                 </div>
             </div>
         </div>
@@ -125,5 +136,6 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/i18n.js"></script>
 </body>
 </html>

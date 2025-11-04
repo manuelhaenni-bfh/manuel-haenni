@@ -34,23 +34,35 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-content">
-            <div class="logo">MH</div>
-            <nav class="nav" id="nav">
-                <a href="index.html">Home</a>
-                <a href="erfahrung.html">Berufserfahrung</a>
-                <a href="ausbildung.html">Ausbildung</a>
-                <a href="zertifikate.html">Zertifikate</a>
-                <a href="kontakt.html">Kontakt</a>
-            </nav>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            <div class="header-left">
+                <a href="index.html" class="logo">MH</a>
+                <div class="lang-switcher" id="lang-switcher">
+                    <span class="lang-option active" data-lang="de">DE</span>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-option" data-lang="en">EN</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div id="weather-header-box" class="weather-header-box"></div>
+            </div>
+            <div class="header-right">
+                <nav class="nav" id="nav">
+                    <a href="index.html" data-i18n="nav_home">Home</a>
+                    <a href="erfahrung.html" data-i18n="nav_experience">Berufserfahrung</a>
+                    <a href="ausbildung.html" data-i18n="nav_education">Ausbildung</a>
+                    <a href="zertifikate.html" data-i18n="nav_certificates">Zertifikate</a>
+                    <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            </div>
         </div>
     </header>
 
     <!-- Page Hero -->
     <div class="page-hero">
         <div class="container">
-            <h1>Impressum</h1>
-            <p>Rechtliche Informationen und Kontaktdaten</p>
+            <h1 data-i18n="impressum_title">Impressum</h1>
+            <p data-i18n="impressum_subtitle">Rechtliche Informationen und Kontaktdaten</p>
         </div>
     </div>
 
@@ -58,23 +70,23 @@
     <section class="legal-section">
         <div class="container">
             <div class="legal-content">
-                <h2>Angaben gemäss Informationspflicht</h2>
-                
-                <h3>Verantwortlich für den Inhalt</h3>
+                <h2 data-i18n="impressum_heading">Angaben gemäss Informationspflicht</h2>
+
+                <h3 data-i18n="impressum_responsible_title">Verantwortlich für den Inhalt</h3>
                 <p>Manuel Hänni<br>
                 Bern, Schweiz</p>
 
-                <h3>Kontakt</h3>
+                <h3 data-i18n="impressum_contact_title">Kontakt</h3>
                 <p>E-Mail: <a href="mailto:manuel.haenni@icloud.com">manuel.haenni@icloud.com</a></p>
 
-                <h3>Haftungsausschluss</h3>
-                <p>Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehme ich jedoch keine Gewähr.</p>
+                <h3 data-i18n="impressum_disclaimer_title">Haftungsausschluss</h3>
+                <p data-i18n="impressum_disclaimer_text">Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehme ich jedoch keine Gewähr.</p>
 
-                <h3>Urheberrecht</h3>
-                <p>Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung.</p>
+                <h3 data-i18n="impressum_copyright_title">Urheberrecht</h3>
+                <p data-i18n="impressum_copyright_text">Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung.</p>
 
-                <h3>Links auf externe Websites</h3>
-                <p>Diese Website enthält Links zu externen Websites Dritter. Auf die Inhalte dieser verlinkten Webseiten habe ich keinen Einfluss. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+                <h3 data-i18n="impressum_links_title">Links auf externe Websites</h3>
+                <p data-i18n="impressum_links_text">Diese Website enthält Links zu externen Websites Dritter. Auf die Inhalte dieser verlinkten Webseiten habe ich keinen Einfluss. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
             </div>
         </div>
     </section>
@@ -83,10 +95,10 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div>&copy; 2025 Manuel Hänni. Alle Rechte vorbehalten.</div>
+                <div>&copy; 2025 Manuel Hänni. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
                 <div class="footer-links">
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="impressum.html" data-i18n="footer_imprint">Impressum</a>
+                    <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a>
                 </div>
             </div>
         </div>
@@ -94,6 +106,8 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/i18n.js"></script>
     <script>
         // Mobile Menu Funktionalität
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {

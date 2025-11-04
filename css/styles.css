@@ -334,8 +334,27 @@ body {
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 1rem var(--container-padding);
+    gap: 1rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
 }
 
 .logo {
@@ -400,6 +419,45 @@ body {
     height: 2px;
     background: var(--accent-blue);
     border-radius: var(--radius-full);
+}
+
+/* Language Switcher - Dropdown Design */
+.lang-switcher {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.lang-option {
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    color: var(--gray-400);
+}
+
+.lang-option:hover {
+    color: var(--gray-600);
+    background: var(--gray-50);
+}
+
+.lang-option.active {
+    color: var(--gray-900);
+    font-weight: 700;
+}
+
+.lang-separator {
+    color: var(--gray-300);
+    font-weight: 400;
+    user-select: none;
+}
+
+.lang-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
 }
 
 .mobile-menu-btn {
@@ -1657,6 +1715,11 @@ section.visible {
 
     .nav a:last-child {
         border-bottom: none;
+    }
+
+    .lang-switcher {
+        margin-left: auto;
+        margin-right: 1rem;
     }
 
     .mobile-menu-btn {

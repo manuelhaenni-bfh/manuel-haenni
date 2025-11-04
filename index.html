@@ -22,16 +22,27 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-content">
-            <div class="logo">MH</div>
-            <div id="weather-header-box" class="weather-header-box"></div>
-            <nav class="nav" id="nav">
-                <a href="#hero" class="active">Home</a>
-                <a href="erfahrung.html">Berufserfahrung</a>
-                <a href="ausbildung.html">Ausbildung</a>
-                <a href="zertifikate.html">Zertifikate</a>
-                <a href="kontakt.html">Kontakt</a>
-            </nav>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            <div class="header-left">
+                <div class="logo">MH</div>
+                <div class="lang-switcher" id="lang-switcher">
+                    <span class="lang-option active" data-lang="de">DE</span>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-option" data-lang="en">EN</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div id="weather-header-box" class="weather-header-box"></div>
+            </div>
+            <div class="header-right">
+                <nav class="nav" id="nav">
+                    <a href="#hero" class="active" data-i18n="nav_home">Home</a>
+                    <a href="erfahrung.html" data-i18n="nav_experience">Berufserfahrung</a>
+                    <a href="ausbildung.html" data-i18n="nav_education">Ausbildung</a>
+                    <a href="zertifikate.html" data-i18n="nav_certificates">Zertifikate</a>
+                    <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            </div>
         </div>
     </header>
 
@@ -42,13 +53,13 @@
                 <div class="hero-text">
                     <h1>Manuel Hänni</h1>
                     <div class="role">
-                        <span class="role-primary">BSc in Digital Business & AI</span><br>
-                        <span class="role-secondary">Hilfsassistent am Institut für Wirtschaftsinformatik, Universität Bern</span>
+                        <span class="role-primary" data-i18n="hero_role_primary">BSc in Digital Business & AI</span><br>
+                        <span class="role-secondary" data-i18n="hero_role_secondary">Hilfsassistent am Institut für Wirtschaftsinformatik, Universität Bern</span>
                     </div>
-                    <p class="tagline">Als Student im Bereich Digital Business und AI fasziniert mich die Verbindung von Wirtschaft und Technologie. Besonders begeistert mich die Zukunft der Digitalisierung und die Möglichkeiten, Prozesse zu vereinfachen und wenn möglich mit künstlicher Intelligenz zu unterstützen.</p>
+                    <p class="tagline" data-i18n="hero_tagline">Als Student im Bereich Digital Business und AI fasziniert mich die Verbindung von Wirtschaft und Technologie. Besonders begeistert mich die Zukunft der Digitalisierung und die Möglichkeiten, Prozesse zu vereinfachen und wenn möglich mit künstlicher Intelligenz zu unterstützen.</p>
                     <div class="hero-buttons">
-                        <a href="kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
-                        <a href="assets/Lebenslauf.pdf" class="btn btn-secondary" download>Lebenslauf als PDF herunterladen</a>
+                        <a href="kontakt.html" class="btn btn-primary" data-i18n="hero_btn_contact">Kontakt aufnehmen</a>
+                        <a href="assets/Lebenslauf.pdf" class="btn btn-secondary" data-i18n="hero_btn_cv" download>Lebenslauf als PDF herunterladen</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -71,32 +82,32 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">Über mich</h2>
+            <h2 class="section-title" data-i18n="about_title">Über mich</h2>
             <div class="about-content">
-                <p class="about-text">
+                <p class="about-text" data-i18n="about_text">
                     Ich studiere Digital Business & AI an der Bernern Fachhochschule und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik an der Universität Bern. Ausgleich finde ich beim Fussballspielen und im gemeinschaftlichen Leben in meiner WG in Bern.
                 </p>
                 <div class="hobbies">
                     <span class="hobby-tag" onclick="openRankingModal()">
-                        <span class="hobby-emoji">⚽</span> Fussball (<a href="https://fclangnau.ch/teams/1-mannschaft" target="_blank" rel="noopener noreferrer" class="hobby-link" onclick="event.stopPropagation()">FC Langnau</a>)
+                        <span class="hobby-emoji">⚽</span> <span data-i18n="hobby_football">Fussball</span> (<a href="https://fclangnau.ch/teams/1-mannschaft" target="_blank" rel="noopener noreferrer" class="hobby-link" onclick="event.stopPropagation()">FC Langnau</a>)
                     </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'tennis')">
-                        <span class="hobby-emoji">🎾</span> Tennis
+                        <span class="hobby-emoji">🎾</span> <span data-i18n="hobby_tennis">Tennis</span>
                     </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'hiking')">
-                        <span class="hobby-emoji">🥾</span> Wandern
+                        <span class="hobby-emoji">🥾</span> <span data-i18n="hobby_hiking">Wandern</span>
                     </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'travel')">
-                        <span class="hobby-emoji">✈️</span> Reisen
+                        <span class="hobby-emoji">✈️</span> <span data-i18n="hobby_travel">Reisen</span>
                     </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'skiing')">
-                        <span class="hobby-emoji">⛷️</span> Skifahren
+                        <span class="hobby-emoji">⛷️</span> <span data-i18n="hobby_skiing">Skifahren</span>
                     </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'diving')">
-                        <span class="hobby-emoji">🤿</span> Tauchen
+                        <span class="hobby-emoji">🤿</span> <span data-i18n="hobby_diving">Tauchen</span>
                     </span>
                     <span class="hobby-tag" onclick="animateHobby(this, 'cooking')">
-                        <span class="hobby-emoji">👨‍🍳</span> Kochen
+                        <span class="hobby-emoji">👨‍🍳</span> <span data-i18n="hobby_cooking">Kochen</span>
                     </span>
                 </div>
             </div>
@@ -106,38 +117,38 @@
     <!-- Skills Section -->
     <section class="skills" id="skills">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title" data-i18n="skills_title">Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon">💼</div>
-                    <h3>Fachkenntnisse</h3>
-                    <p>Fundierte Kenntnisse in Bankwesen und Produktmanagement mit praktischer Erfahrung in Kundenberatung und Projektarbeit.</p>
+                    <h3 data-i18n="skills_professional_title">Fachkenntnisse</h3>
+                    <p data-i18n="skills_professional_desc">Fundierte Kenntnisse in Bankwesen und Produktmanagement mit praktischer Erfahrung in Kundenberatung und Projektarbeit.</p>
                     <div class="skill-pills">
-                        <span class="skill-pill">Bankwesen</span>
-                        <span class="skill-pill">Produktmanagement</span>
-                        <span class="skill-pill">MS Office</span>
+                        <span class="skill-pill" data-i18n="skills_pill_banking">Bankwesen</span>
+                        <span class="skill-pill" data-i18n="skills_pill_product_mgmt">Produktmanagement</span>
+                        <span class="skill-pill" data-i18n="skills_pill_ms_office">MS Office</span>
                     </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">💻</div>
-                    <h3>Technische Skills</h3>
-                    <p>Grundkenntnisse in Programmierung und Datenanalyse sowie sehr gute Kenntnisse in Microsoft Office Suite.</p>
+                    <h3 data-i18n="skills_technical_title">Technische Skills</h3>
+                    <p data-i18n="skills_technical_desc">Grundkenntnisse in Programmierung und Datenanalyse sowie sehr gute Kenntnisse in Microsoft Office Suite.</p>
                     <div class="skill-pills">
                         <span class="skill-pill">R</span>
                         <span class="skill-pill">Python</span>
-                        <span class="skill-pill">MS Office</span>
-                        <span class="skill-pill">Datenanalyse</span>
-                        <span class="skill-pill">HTML, CSS, JS</span>
+                        <span class="skill-pill" data-i18n="skills_pill_ms_office">MS Office</span>
+                        <span class="skill-pill" data-i18n="skills_pill_data_analysis">Datenanalyse</span>
+                        <span class="skill-pill" data-i18n="skills_pill_html_css_js">HTML, CSS, JS</span>
                     </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🗣️</div>
-                    <h3>Sprachen</h3>
-                    <p>Mehrsprachige Kommunikationsfähigkeiten für internationale Zusammenarbeit und Kundenbetreuung.</p>
+                    <h3 data-i18n="skills_languages_title">Sprachen</h3>
+                    <p data-i18n="skills_languages_desc">Mehrsprachige Kommunikationsfähigkeiten für internationale Zusammenarbeit und Kundenbetreuung.</p>
                     <div class="skill-pills">
-                        <span class="skill-pill">Deutsch (Muttersprache)</span>
-                        <span class="skill-pill">Englisch (B2)</span>
-                        <span class="skill-pill">Französisch (B1)</span>
+                        <span class="skill-pill" data-i18n="skills_pill_german">Deutsch (Muttersprache)</span>
+                        <span class="skill-pill" data-i18n="skills_pill_english">Englisch (B2)</span>
+                        <span class="skill-pill" data-i18n="skills_pill_french">Französisch (B1)</span>
                     </div>
                 </div>
             </div>
@@ -179,10 +190,10 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div>&copy; 2025 Manuel Hänni. Alle Rechte vorbehalten.</div>
+                <div>&copy; 2025 Manuel Hänni. <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span></div>
                 <div class="footer-links">
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="impressum.html" data-i18n="footer_imprint">Impressum</a>
+                    <a href="datenschutz.html" data-i18n="footer_privacy">Datenschutz</a>
                 </div>
             </div>
         </div>
@@ -192,5 +203,6 @@
     <script src="js/main.js"></script>
     <script src="js/home.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/i18n.js"></script>
 </body>
 </html>
