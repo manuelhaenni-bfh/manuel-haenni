@@ -11,7 +11,8 @@ function getWeatherEmoji(weatherId) {
     if (weatherId >= 600 && weatherId < 700) return '🌨️'; // Schnee
     if (weatherId >= 700 && weatherId < 800) return '🌫️'; // Nebel/Dunst
     if (weatherId === 800) return '☀️';                    // Klarer Himmel
-    if (weatherId > 800) return '☁️';                      // Bewölkt
+    if (weatherId === 801) return '🌤️';                    // Ein paar Wolken
+    if (weatherId > 801) return '☁️';                      // Bewölkt
     return '❓';                                           // Unbekannt
 }
 
@@ -32,13 +33,13 @@ function renderWeatherInHeader() {
             const emoji = getWeatherEmoji(weatherId);
             weatherHeaderBox.innerHTML = `
                 <div class="weather-info weather-header-compact">
-                    <div class="weather-row">
+                    <div class="weather-main-display">
                         <span class="weather-emoji">${emoji}</span>
                         <span class="weather-temp">${temp}°C</span>
+                        <span class="weather-city">Bern, Schweiz</span>
                     </div>
-                    <div class="weather-row">
-                        <span class="weather-desc">${desc}</span>
-                        <span class="weather-city">Bern</span>
+                    <div class="weather-details-hover">
+                        <div class="weather-desc">${desc}</div>
                     </div>
                 </div>
             `;

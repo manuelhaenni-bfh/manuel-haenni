@@ -1,26 +1,47 @@
 .weather-header-compact {
-    flex-direction: column;
-    gap: 0.1rem;
-    align-items: flex-start;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
-.weather-header-compact .weather-row {
+.weather-header-compact .weather-main-display {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 .weather-header-compact .weather-emoji {
     font-size: 1.5rem;
-    margin-right: 0.2rem;
 }
 .weather-header-compact .weather-temp {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--accent-blue);
 }
+.weather-header-compact .weather-details-hover {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    background: white;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    z-index: 1000;
+}
+.weather-header-compact:hover .weather-details-hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
 .weather-header-compact .weather-desc {
     font-size: 0.9rem;
     color: var(--gray-700);
     text-transform: capitalize;
+    margin-bottom: 0.25rem;
 }
 .weather-header-compact .weather-city {
     font-size: 0.8rem;
@@ -320,7 +341,9 @@ body {
 .logo {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-mint));
+    min-width: 40px;
+    min-height: 40px;
+    background: linear-gradient(135deg, #0A1E42, #3B82F6);
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
@@ -330,6 +353,7 @@ body {
     font-size: 1rem;
     box-shadow: var(--shadow-md);
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .nav {
@@ -1587,7 +1611,7 @@ section.visible {
    RESPONSIVE DESIGN
    ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     :root {
         --section-padding: 3rem 0;
         --container-padding: 1rem;
@@ -1851,6 +1875,8 @@ section.visible {
 .company-logo.larger {
     width: 130px;
     height: 130px;
+    top: 0rem;
+    right: 0rem;
 }
 .company-logo.smaller {
     width: 60px;
