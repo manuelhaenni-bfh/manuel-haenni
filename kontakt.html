@@ -92,8 +92,19 @@
                             <div class="contact-icon">📱</div>
                             <div class="contact-text">
                                 <div class="label" data-i18n="contact_label_phone">Telefon</div>
-                                <div class="value">
-                                    <a href="tel:+41794803393">+41 79 480 33 93</a>
+                                <div class="value phone-dropdown-trigger">
+                                    <span>+41 79 480 33 93</span>
+                                    <span class="dropdown-arrow">▼</span>
+                                </div>
+                                <div class="contact-dropdown" id="phone-dropdown">
+                                    <a href="https://wa.me/41794803393" class="contact-dropdown-item" target="_blank" rel="noopener noreferrer">
+                                        <span class="btn-icon">💬</span>
+                                        <span data-i18n="contact_btn_whatsapp">WhatsApp</span>
+                                    </a>
+                                    <a href="tel:+41794803393" class="contact-dropdown-item">
+                                        <span class="btn-icon">📞</span>
+                                        <span data-i18n="contact_btn_call">Anrufen</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -161,5 +172,29 @@
     <script src="js/maps.js"></script>
     <script src="js/i18n.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIKPUWYT2SI5blBxbIsvm2FBxC9wMHuUg&callback=initMap" async defer></script>
+
+    <!-- Phone Dropdown Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const trigger = document.querySelector('.phone-dropdown-trigger');
+            const dropdown = document.getElementById('phone-dropdown');
+
+            if (trigger && dropdown) {
+                trigger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    trigger.classList.toggle('active');
+                    dropdown.classList.toggle('show');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!trigger.contains(e.target) && !dropdown.contains(e.target)) {
+                        trigger.classList.remove('active');
+                        dropdown.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
