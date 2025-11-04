@@ -460,6 +460,11 @@ body {
     transition: transform 0.2s ease;
 }
 
+/* Hide nav lang switcher on desktop */
+.nav-lang-switcher {
+    display: none;
+}
+
 .mobile-menu-btn {
     display: none;
     background: none;
