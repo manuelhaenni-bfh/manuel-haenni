@@ -1887,3 +1887,47 @@ section.visible {
 .mobile-br {
     display: none;
 }
+
+/* Google Maps Styles */
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-map-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 1.5rem;
+}
+
+.contact-map {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: white;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+}
+
+/* Mobile: Stack vertically */
+@media (max-width: 992px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    #map {
+        height: 400px;
+    }
+}

@@ -61,48 +61,58 @@
                 </form>
                 
                 <div class="contact-info">
-                    <h3>Kontaktinformationen</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-text">
-                            <div class="label">E-Mail</div>
-                            <div class="value">
-                                <a href="mailto:manuel.haenni@icloud.com">manuel.haenni@icloud.com</a>
+                    <div class="contact-details">
+                        <h3>Kontaktinformationen</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <div class="label">E-Mail</div>
+                                <div class="value">
+                                    <a href="mailto:manuel.haenni@icloud.com">manuel.haenni@icloud.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <div class="label">Telefon</div>
+                                <div class="value">
+                                    <a href="tel:+41794803393">+41 79 480 33 93</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-text">
+                                <div class="label">LinkedIn</div>
+                                <div class="value">
+                                    <a href="https://www.linkedin.com/in/manuel-h%C3%A4nni-634906330/" target="_blank" rel="noopener noreferrer">LinkedIn Profil</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📷</div>
+                            <div class="contact-text">
+                                <div class="label">Instagram</div>
+                                <div class="value">
+                                    <a href="https://www.instagram.com/m_haenni/" target="_blank" rel="noopener noreferrer">@m_haenni</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <div class="label">Standort</div>
+                                <div class="value">Bern, Schweiz</div>
                             </div>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-text">
-                            <div class="label">Telefon</div>
-                            <div class="value">
-                                <a href="tel:+41794803393">+41 79 480 33 93</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">💼</div>
-                        <div class="contact-text">
-                            <div class="label">LinkedIn</div>
-                            <div class="value">
-                                <a href="https://www.linkedin.com/in/manuel-h%C3%A4nni-634906330/" target="_blank" rel="noopener noreferrer">LinkedIn Profil</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📷</div>
-                        <div class="contact-text">
-                            <div class="label">Instagram</div>
-                            <div class="value">
-                                <a href="https://www.instagram.com/m_haenni/" target="_blank" rel="noopener noreferrer">@m_haenni</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-text">
-                            <div class="label">Standort</div>
-                            <div class="value">Bern, Schweiz</div>
+
+                    <!-- Google Maps -->
+                    <div class="contact-map-section">
+                        <h3>Standort BFH Marzili</h3>
+                        <div class="contact-map">
+                            <div id="map"></div>
                         </div>
                     </div>
                 </div>
@@ -132,5 +142,7 @@
     <script src="js/main.js"></script>
     <script src="js/contact.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIKPUWYT2SI5blBxbIsvm2FBxC9wMHuUg&callback=initMap" async defer></script>
 </body>
 </html>
