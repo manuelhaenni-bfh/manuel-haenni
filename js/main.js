@@ -93,6 +93,48 @@ function initKeyboardNavigation() {
 }
 
 // ========================================
+// HERO NAME SCALING ON SCROLL
+// ========================================
+
+/**
+ * Scale hero name based on scroll position (desktop only)
+ */
+function initHeroNameScaling() {
+    const heroTitle = document.querySelector('.hero h1');
+    if (!heroTitle) return;
+
+    // Only run on desktop (width > 1024px)
+    if (window.innerWidth <= 1024) {
+        heroTitle.style.transform = 'scale(1)';
+        return;
+    }
+
+    let ticking = false;
+
+    function updateScale() {
+        const scrolled = window.scrollY;
+        // Scale from 1.0 to 1.5 over the first 300px of scroll
+        const maxScroll = 300;
+        const maxScale = 1.5;
+        const minScale = 1.0;
+
+        let scale = minScale + (scrolled / maxScroll) * (maxScale - minScale);
+        scale = Math.min(scale, maxScale); // Cap at maxScale
+        scale = Math.max(scale, minScale); // Don't go below minScale
+
+        heroTitle.style.transform = `scale(${scale})`;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateScale);
+            ticking = true;
+        }
+    });
+}
+
+// ========================================
 // INITIALIZATION
 // ========================================
 
@@ -103,16 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Setup header
     updateHeader();
     window.addEventListener('scroll', updateHeader);
-    
+
     // Setup mobile menu
     initMobileMenu();
-    
+
     // Setup keyboard navigation
     initKeyboardNavigation();
-    
+
+    // Setup hero name scaling
+    initHeroNameScaling();
+
     // Disable scroll restoration
     disableScrollRestoration();
-    
+
     // If homepage-specific script (initScrollAnimations) is not present,
     // make all sections visible so subpages aren't hidden by the CSS animation rules.
     // home.js uses an IntersectionObserver to add `.visible` to sections on the homepage;

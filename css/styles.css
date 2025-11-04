@@ -629,6 +629,8 @@ section.visible {
     color: #1E3A8A;
     margin-bottom: 1rem;
     line-height: 1.2;
+    transition: transform 0.1s ease-out;
+    transform-origin: left center;
 }
 
 .hero-text .role {
