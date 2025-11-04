@@ -1717,13 +1717,23 @@ section.visible {
         border-bottom: none;
     }
 
-    .lang-switcher {
-        margin-left: auto;
-        margin-right: 1rem;
+    .header-left .lang-switcher {
+        display: none;
     }
 
     .mobile-menu-btn {
         display: block;
+    }
+
+    /* Language switcher in mobile menu */
+    .nav-lang-switcher {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem 0;
+        border-top: 1px solid var(--gray-100);
+        margin-top: 0.5rem;
     }
 
     .hero-content {
