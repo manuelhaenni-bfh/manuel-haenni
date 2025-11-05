@@ -498,6 +498,67 @@ section.visible {
     margin-bottom: 3rem;
 }
 
+/* Particle Merge → Letters Effect */
+.section-title .char-wrapper {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    vertical-align: middle;
+    width: 1.8rem;
+    height: 2.5rem;
+    text-align: center;
+}
+
+.section-title .char-wrapper .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--gray-800);
+    border-radius: 50%;
+    opacity: 1;
+    transform: translate(var(--particle-x), var(--particle-y)) scale(1);
+    transition: all 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 2;
+}
+
+.section-title.in-view .char-wrapper .particle {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    transition-delay: calc(var(--char-index) * 0.08s + var(--particle-delay) * 0.1s);
+}
+
+.section-title .char-wrapper .letter {
+    display: inline-block;
+    opacity: 0;
+    color: var(--gray-800);
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 1.2s ease-out;
+    z-index: 1;
+}
+
+.section-title.in-view .char-wrapper .letter {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition-delay: calc(var(--char-index) * 0.08s + 0.8s);
+}
+
+/* Hide particles when letter is fully visible */
+.section-title.in-view .char-wrapper .particle {
+    opacity: 0;
+    transition-delay: calc(var(--char-index) * 0.08s + 0.8s);
+}
+
+/* Space zwischen Wörtern */
+.section-title .space {
+    display: inline-block;
+    width: 1.5rem;
+}
+
 .section-subtitle {
     font-size: 1.25rem;
     color: var(--gray-600);

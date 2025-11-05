@@ -345,6 +345,9 @@ function switchLanguage(lang) {
     localStorage.setItem('language', lang);
     updatePageLanguage();
     updateLanguageButton();
+
+    // Trigger event for title animation re-initialization
+    document.dispatchEvent(new Event('languageChanged'));
 }
 
 // Funktion zum Aktualisieren aller Texte auf der Seite
