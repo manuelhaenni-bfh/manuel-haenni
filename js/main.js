@@ -103,15 +103,17 @@ function initHeroNameScaling() {
     const heroTitle = document.querySelector('.hero h1');
     if (!heroTitle) return;
 
-    // Only run on desktop (width > 1024px)
-    if (window.innerWidth <= 1024) {
-        heroTitle.style.transform = 'scale(1)';
-        return;
-    }
-
     let ticking = false;
+    let isDesktop = window.innerWidth > 992;
 
     function updateScale() {
+        // Check if desktop
+        if (!isDesktop) {
+            heroTitle.style.transform = 'scale(1)';
+            ticking = false;
+            return;
+        }
+
         const scrolled = window.scrollY;
         // Scale from 1.0 to 1.5 over the first 300px of scroll
         const maxScroll = 300;
@@ -126,12 +128,24 @@ function initHeroNameScaling() {
         ticking = false;
     }
 
+    // Handle scroll
     window.addEventListener('scroll', () => {
         if (!ticking) {
             window.requestAnimationFrame(updateScale);
             ticking = true;
         }
     });
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+        isDesktop = window.innerWidth > 992;
+        if (!isDesktop) {
+            heroTitle.style.transform = 'scale(1)';
+        }
+    });
+
+    // Initial update
+    updateScale();
 }
 
 // ========================================

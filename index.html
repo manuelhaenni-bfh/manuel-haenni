@@ -117,26 +117,73 @@
                 <p class="about-text" data-i18n="about_text">
                     Ich studiere Digital Business & AI an der Bernern Fachhochschule und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik an der Universität Bern. Ausgleich finde ich beim Fussballspielen und im gemeinschaftlichen Leben in meiner WG in Bern.
                 </p>
-                <div class="hobbies">
+                <!-- Desktop: Image Gallery -->
+                <div class="hobbies-gallery">
+                    <div class="hobby-image-card" data-hobby="football" onclick="openRankingModal()">
+                        <img src="assets/Hobbys/Fussball.png" alt="Fussball" loading="lazy">
+                        <div class="hobby-overlay">
+                            <span class="hobby-label" data-i18n="hobby_football">Fussball</span>
+                        </div>
+                    </div>
+                    <div class="hobby-image-card" data-hobby="tennis">
+                        <img src="assets/Hobbys/Tennis_Federer.png" alt="Tennis" loading="lazy">
+                        <div class="hobby-overlay">
+                            <span class="hobby-label" data-i18n="hobby_tennis">Tennis</span>
+                        </div>
+                    </div>
+                    <div class="hobby-image-card" data-hobby="hiking">
+                        <img src="assets/Hobbys/wandern-alpen.png" alt="Wandern" loading="lazy">
+                        <div class="hobby-overlay">
+                            <span class="hobby-label" data-i18n="hobby_hiking">Wandern</span>
+                        </div>
+                    </div>
+                    <div class="hobby-image-card" data-hobby="travel">
+                        <img src="assets/Hobbys/Reisen_indonesien.jpg" alt="Reisen" loading="lazy">
+                        <div class="hobby-overlay">
+                            <span class="hobby-label" data-i18n="hobby_travel">Reisen</span>
+                        </div>
+                    </div>
+                    <div class="hobby-image-card" data-hobby="skiing">
+                        <img src="assets/Hobbys/skifahren.png" alt="Skifahren" loading="lazy">
+                        <div class="hobby-overlay">
+                            <span class="hobby-label" data-i18n="hobby_skiing">Skifahren</span>
+                        </div>
+                    </div>
+                    <div class="hobby-image-card" data-hobby="diving">
+                        <img src="assets/Hobbys/Tauchen.png" alt="Tauchen" loading="lazy">
+                        <div class="hobby-overlay">
+                            <span class="hobby-label" data-i18n="hobby_diving">Tauchen</span>
+                        </div>
+                    </div>
+                    <div class="hobby-image-card" data-hobby="cooking">
+                        <img src="assets/Hobbys/kochen.png" alt="Kochen" loading="lazy">
+                        <div class="hobby-overlay">
+                            <span class="hobby-label" data-i18n="hobby_cooking">Kochen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile: Tags (fallback) -->
+                <div class="hobbies-mobile">
                     <span class="hobby-tag" onclick="openRankingModal()">
-                        <span class="hobby-emoji">⚽</span> <span data-i18n="hobby_football">Fussball</span> (<a href="https://fclangnau.ch/teams/1-mannschaft" target="_blank" rel="noopener noreferrer" class="hobby-link" onclick="event.stopPropagation()">FC Langnau</a>)
+                        <span class="hobby-emoji">⚽</span> <span data-i18n="hobby_football">Fussball</span>
                     </span>
-                    <span class="hobby-tag" onclick="animateHobby(this, 'tennis')">
+                    <span class="hobby-tag">
                         <span class="hobby-emoji">🎾</span> <span data-i18n="hobby_tennis">Tennis</span>
                     </span>
-                    <span class="hobby-tag" onclick="animateHobby(this, 'hiking')">
+                    <span class="hobby-tag">
                         <span class="hobby-emoji">🥾</span> <span data-i18n="hobby_hiking">Wandern</span>
                     </span>
-                    <span class="hobby-tag" onclick="animateHobby(this, 'travel')">
+                    <span class="hobby-tag">
                         <span class="hobby-emoji">✈️</span> <span data-i18n="hobby_travel">Reisen</span>
                     </span>
-                    <span class="hobby-tag" onclick="animateHobby(this, 'skiing')">
+                    <span class="hobby-tag">
                         <span class="hobby-emoji">⛷️</span> <span data-i18n="hobby_skiing">Skifahren</span>
                     </span>
-                    <span class="hobby-tag" onclick="animateHobby(this, 'diving')">
+                    <span class="hobby-tag">
                         <span class="hobby-emoji">🤿</span> <span data-i18n="hobby_diving">Tauchen</span>
                     </span>
-                    <span class="hobby-tag" onclick="animateHobby(this, 'cooking')">
+                    <span class="hobby-tag">
                         <span class="hobby-emoji">👨‍🍳</span> <span data-i18n="hobby_cooking">Kochen</span>
                     </span>
                 </div>
@@ -235,5 +282,6 @@
     <script src="js/weather.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/title-animation.js"></script>
+    <script src="js/hobby-tilt.js"></script>
 </body>
 </html>
