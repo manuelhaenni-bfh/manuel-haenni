@@ -1,7 +1,8 @@
 // OpenWeatherMap API Key
 const WEATHER_API_KEY = '57fb8ef03e387036cb8bd4eded6f09c6';
-const CITY = 'Bern';
-const COUNTRY = 'CH';
+// GPS-Koordinaten für präzisere Wetterdaten
+const LAT = 46.9480;  // Bern Zentrum
+const LON = 7.4474;
 
 // Wetterbedingungen zu Emoji-Mapping
 function getWeatherEmoji(weatherId) {
@@ -24,7 +25,7 @@ function renderWeatherInHeader() {
     const weatherHeaderBox = document.getElementById('weather-header-box');
     if (!weatherHeaderBox) return;
     weatherHeaderBox.innerHTML = '<div class="loading-spinner">Lade Wetter...</div>';
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY}&appid=${WEATHER_API_KEY}&lang=de`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&appid=${WEATHER_API_KEY}&lang=de`)
         .then(response => response.json())
         .then(data => {
             const temp = kelvinToCelsius(data.main.temp);
