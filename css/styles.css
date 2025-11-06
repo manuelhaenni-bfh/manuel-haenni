@@ -1381,38 +1381,50 @@ section.visible {
 }
 
 .contact-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-lg);
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.25rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+.contact-item:hover .contact-icon {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* E-Mail - Blue */
+.contact-item:nth-child(1) .contact-icon {
+    background: #F5F5F5;
+    color: #3B82F6;
+}
+
+/* Phone - Green */
 .contact-item:nth-child(2) .contact-icon {
-    background: var(--pastel-blue);
-    color: var(--accent-blue);
+    background: #F5F5F5;
+    color: #10B981;
 }
 
+/* LinkedIn - Blue */
 .contact-item:nth-child(3) .contact-icon {
-    background: var(--pastel-mint);
-    color: var(--accent-mint);
+    background: #F5F5F5;
+    color: #0A66C2;
 }
 
+/* Instagram - Pink/Purple */
 .contact-item:nth-child(4) .contact-icon {
-    background: var(--pastel-rose);
-    color: var(--accent-rose);
+    background: #F5F5F5;
+    color: #E11D48;
 }
 
+/* Location - Red */
 .contact-item:nth-child(5) .contact-icon {
-    background: var(--pastel-lavender);
-    color: var(--accent-lavender);
-}
-
-.contact-item:nth-child(6) .contact-icon {
-    background: var(--pastel-sand);
-    color: var(--accent-sand);
+    background: #F5F5F5;
+    color: #EF4444;
 }
 
 .contact-text {
