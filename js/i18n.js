@@ -19,7 +19,7 @@ const translations = {
 
         // About Section
         about_title: "Über mich",
-        about_text: "Ich studiere Digital Business & AI an der Bernern Fachhochschule und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik an der Universität Bern. Ausgleich finde ich beim Fussballspielen und im gemeinschaftlichen Leben in meiner WG in Bern.",
+        about_text: "Ich studiere Digital Business & AI an der Berner Fachhochschule und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik an der Universität Bern. Ausgleich finde ich beim Fussballspielen und im gemeinschaftlichen Leben in meiner WG in Bern und bei meinen untenstehenden Hobbys.",
 
         // Hobbies
         hobby_football: "Fussball",
@@ -185,7 +185,7 @@ const translations = {
 
         // About Section
         about_title: "About me",
-        about_text: "I study Digital Business & AI at Bern University of Applied Sciences and work as a research assistant at the Institute of Information Systems at the University of Bern. I find balance through playing football and community living in my shared apartment in Bern.",
+        about_text: "I study Digital Business & AI at Bern University of Applied Sciences and work as a research assistant at the Institute of Information Systems at the University of Bern. I find balance through playing football and community living in my shared apartment in Bern and through my hobbies below.",
 
         // Hobbies
         hobby_football: "Football",
