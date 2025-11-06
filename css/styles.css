@@ -1214,7 +1214,7 @@ section.visible {
 .cert-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: var(--accent-blue);
+    color: #93C5FD;
 }
 
 .cert-level {
