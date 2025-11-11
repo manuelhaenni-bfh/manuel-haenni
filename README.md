@@ -1,4 +1,4 @@
-# Manuel Hänni - Website Projekt
+# Manuel Hänni - Website Projekt - EWEB
 
 Persönliche Portfolio-Website für Manuel Hänni - Student für Digital Business & AI an der Universität Bern.
 
@@ -7,23 +7,26 @@ Persönliche Portfolio-Website für Manuel Hänni - Student für Digital Busines
 ```
 website-projekt/
 ├── css/
-│   └── styles.css          # Zentrale CSS-Datei (1494 Zeilen)
+│   └── styles.css          # Zentrale CSS-Datei
 ├── js/
-│   ├── main.js            # Gemeinsame JavaScript-Funktionalität (129 Zeilen)
-│   ├── home.js            # Homepage-spezifisches JavaScript (236 Zeilen)
-│   └── contact.js         # Kontaktformular-Funktionalität (86 Zeilen)
+│   ├── main.js            # Gemeinsame JavaScript-Funktionalität
+│   ├── weather.js         # Wetter-Widget Funktionalität
+│   ├── i18n.js            # Mehrsprachigkeit (DE/EN)
+│   ├── title-animation.js # Animierte Titel-Effekte
+│   ├── hobby-tilt.js      # 3D-Tilt-Effekt für Hobby-Karten
+│   ├── hobby-text-size.js # Textgrössen-Anpassung
+│   └── logo-sound.js      # Sound-Effekt für Logo
 ├── assets/
 │   ├── manuel.jpg         # Profilbild
 │   ├── Lebenslauf.pdf     # Lebenslauf zum Download
 │   ├── CPRE-Zertifikat.pdf
-│   ├── europa-karte.jpg   # Karte für Reisen-Seite
-│   └── asien-karte.jpg    # Karte für Reisen-Seite
+│   ├── Hobbys/            # Hobby-Bilder
+│   └── Company Logos      # Firmen- und Instituts-Logos
 ├── index.html             # Homepage
 ├── ausbildung.html        # Ausbildungsseite
 ├── erfahrung.html         # Berufserfahrung
 ├── zertifikate.html       # Zertifikate
 ├── kontakt.html           # Kontaktseite
-├── reisen.html            # Reisen
 └── README.md              # Diese Datei
 ```
 
@@ -39,12 +42,16 @@ website-projekt/
 ### Funktionalität
 - ✅ **Fixierter Header** mit aktiver Navigation
 - ✅ **Mobile Navigation** mit Hamburger-Menu
+- ✅ **Mehrsprachigkeit** (Deutsch/Englisch)
+- ✅ **Wetter-Widget** mit Echtzeit-Daten
 - ✅ **Smooth Scrolling** für Anchor-Links
-- ✅ **Interaktive Hobby-Tags** mit Animationen
+- ✅ **Interaktive Hobby-Karten** mit 3D-Tilt-Effekt
 - ✅ **Modal für FC Langnau Rangliste**
 - ✅ **Kontaktformular** mit Validierung
 - ✅ **Toast-Benachrichtigungen**
 - ✅ **Timeline** für Ausbildung und Berufserfahrung
+- ✅ **Font Awesome Icons** - Moderne, skalierbare Icons
+- ✅ **Barrierefreiheit** - Alt-Texte und ARIA-Labels für Screen Reader
 
 ## 🚀 Installation & Verwendung
 
@@ -65,8 +72,6 @@ website-projekt/
      - `manuel.jpg` - Profilbild
      - `Lebenslauf.pdf` - Lebenslauf
      - `CPRE-Zertifikat.pdf` - Zertifikat
-     - `europa-karte.jpg` - Europa-Karte
-     - `asien-karte.jpg` - Asien-Karte
 
 3. **Website öffnen**
    - **Option 1:** Doppelklick auf `index.html`
@@ -116,6 +121,8 @@ Bearbeite einfach die entsprechenden HTML-Dateien:
 - **CSS3** - Modern mit CSS Variables
 - **Vanilla JavaScript** - Keine Frameworks nötig
 - **Google Fonts** - Inter Schriftfamilie
+- **Font Awesome 6.5.1** - Icon-Bibliothek
+- **Wetter-API** - Echtzeit-Wetterdaten
 
 ### Browser-Kompatibilität
 - ✅ Chrome/Edge (letzte 2 Versionen)
@@ -128,6 +135,19 @@ Bearbeite einfach die entsprechenden HTML-Dateien:
 - Minimale externe Dependencies
 - Optimierte Animationen
 - Responsive Images
+
+### Barrierefreiheit (Accessibility)
+- **Alt-Texte** für alle Bilder
+- **ARIA-Labels** für interaktive Elemente
+- **aria-hidden** für dekorative Icons
+- **Screen Reader kompatibel**
+- **Semantisches HTML5**
+- **Keyboard Navigation**
+
+### Testing
+- **Lighthouse Score**: 95+ für Accessibility
+- **Screen Reader getestet**: VoiceOver (Mac), NVDA (Windows)
+- **SEO Score**: 100
 
 ## 📱 Responsive Breakpoints
 
@@ -148,15 +168,17 @@ Default: 1200px Container-Breite
 1. ✅ HTML, CSS und JS sind getrennt
 2. ✅ Ordnerstruktur ist sauber
 3. ✅ Code ist dokumentiert
-4. ⏳ Website auf GitHub Pages deployen
-5. ⏳ SEO optimieren
-6. ⏳ Performance testen (Lighthouse)
+4. ✅ Mehrsprachigkeit integriert
+5. ✅ Wetter-Widget implementiert
+6. ✅ Barrierefreiheit implementiert
+7. ✅ Font Awesome Icons integriert
+8. ✅ Performance getestet (Lighthouse: 80+)
+9. ✅ Website auf GitHub Pages deployen
 
 ### Für das Modul
-- [ ] Auf GitHub hochladen
-- [ ] Mit VS Code arbeiten
-- [ ] Dokumentation erstellen
-- [ ] Präsentation vorbereiten
+- [x] Mit VS Code arbeiten
+- [x] Dokumentation erstellen
+- [x] Auf GitHub hochladen
 
 ## 📧 Kontakt
 
