@@ -212,6 +212,43 @@ function initModalKeyboardControls() {
 }
 
 // ========================================
+// PROFILE FLIP CARD
+// ========================================
+
+/**
+ * Initialize profile flip card click functionality
+ */
+function initProfileFlipCard() {
+    const profileFlipCard = document.querySelector('.profile-flip-card');
+    const profileContactBtn = document.querySelector('.profile-contact-btn');
+    let isFlipped = false;
+
+    if (profileFlipCard) {
+        // Toggle flip on click/tap (for mobile)
+        profileFlipCard.addEventListener('click', (e) => {
+            // Don't flip if clicking the button
+            if (e.target.closest('.profile-contact-btn')) {
+                return;
+            }
+
+            isFlipped = !isFlipped;
+            if (isFlipped) {
+                profileFlipCard.classList.add('flipped');
+            } else {
+                profileFlipCard.classList.remove('flipped');
+            }
+        });
+    }
+
+    if (profileContactBtn) {
+        profileContactBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent card flip on button click
+            window.location.href = 'kontakt.html';
+        });
+    }
+}
+
+// ========================================
 // INITIALIZATION
 // ========================================
 
@@ -221,16 +258,19 @@ function initModalKeyboardControls() {
 document.addEventListener('DOMContentLoaded', () => {
     // Setup scroll animations
     initScrollAnimations();
-    
+
     // Setup smooth scrolling
     initSmoothScrolling();
-    
+
     // Setup modal keyboard controls
     initModalKeyboardControls();
-    
+
+    // Setup profile flip card
+    initProfileFlipCard();
+
     // Update active navigation on scroll
     window.addEventListener('scroll', updateActiveNav);
-    
+
     // Initial call to update active nav
     updateActiveNav();
 });

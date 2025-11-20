@@ -166,7 +166,11 @@ const translations = {
         toast_error: "Fehler beim Senden der Nachricht.",
 
         // Weather
-        weather_city: "Bern, Schweiz"
+        weather_city: "Bern, Schweiz",
+
+        // Profile Flip Card
+        profile_contact_title: "Kontaktiere mich",
+        profile_contact_btn: "Zur Kontaktseite"
     },
     en: {
         // Navigation
@@ -332,7 +336,11 @@ const translations = {
         toast_error: "Error sending message.",
 
         // Weather
-        weather_city: "Bern, Switzerland"
+        weather_city: "Bern, Switzerland",
+
+        // Profile Flip Card
+        profile_contact_title: "Contact me",
+        profile_contact_btn: "To Contact Page"
     }
 };
 
