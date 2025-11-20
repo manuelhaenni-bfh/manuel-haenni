@@ -224,18 +224,21 @@ function initProfileFlipCard() {
     let isFlipped = false;
 
     if (profileFlipCard) {
-        // Toggle flip on click/tap (for mobile)
+        // Toggle flip on click/tap (mobile only)
         profileFlipCard.addEventListener('click', (e) => {
             // Don't flip if clicking the button
             if (e.target.closest('.profile-contact-btn')) {
                 return;
             }
 
-            isFlipped = !isFlipped;
-            if (isFlipped) {
-                profileFlipCard.classList.add('flipped');
-            } else {
-                profileFlipCard.classList.remove('flipped');
+            // Only allow click-to-flip on mobile
+            if (window.innerWidth < 993) {
+                isFlipped = !isFlipped;
+                if (isFlipped) {
+                    profileFlipCard.classList.add('flipped');
+                } else {
+                    profileFlipCard.classList.remove('flipped');
+                }
             }
         });
     }

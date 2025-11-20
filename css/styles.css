@@ -755,9 +755,16 @@ section.visible {
     transform-style: preserve-3d;
 }
 
-.profile-flip-card:hover .profile-flip-inner,
+/* Only flip on click/tap (mobile-first) */
 .profile-flip-card.flipped .profile-flip-inner {
     transform: rotateY(180deg);
+}
+
+/* Hover effect only on desktop */
+@media (min-width: 993px) {
+    .profile-flip-card:hover .profile-flip-inner {
+        transform: rotateY(180deg);
+    }
 }
 
 .profile-flip-front,
