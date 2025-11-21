@@ -20,6 +20,73 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        #globe-section {
+            padding: 0;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.6s ease, opacity 0.6s ease, padding 0.6s ease;
+        }
+
+        #globe-section.expanded {
+            max-height: 1000px;
+            opacity: 1;
+            padding: 40px 0;
+        }
+
+        #globe-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #canvas-container {
+            width: 350px;
+            height: 350px;
+            min-height: 350px;
+        }
+
+        #canvas-container canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        @media (max-width: 768px) {
+            #canvas-container {
+                width: 280px;
+                height: 280px;
+                min-height: 280px;
+            }
+        }
+
+        .hobby-image-card[data-hobby="travel"] {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-image-card[data-hobby="travel"]:hover {
+            transform: scale(1.05);
+        }
+
+        /* Abstand zwischen About-Section und Skills-Section verkleinern */
+        .about {
+            margin-bottom: 1px;
+        }
+
+        .skills {
+            padding-top: 1px;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -162,7 +229,7 @@
                             <span class="hobby-label" data-i18n="hobby_hiking">Wandern</span>
                         </div>
                     </div>
-                    <div class="hobby-image-card" data-hobby="travel">
+                    <div class="hobby-image-card" data-hobby="travel" onclick="toggleGlobe()">
                         <img src="assets/Hobbys/Reisen_indonesien.jpg" alt="Reiseszene aus Indonesien" loading="lazy">
                         <div class="hobby-overlay">
                             <span class="hobby-label" data-i18n="hobby_travel">Reisen</span>
@@ -199,7 +266,7 @@
                     <span class="hobby-tag">
                         <span class="hobby-emoji">🥾</span> <span data-i18n="hobby_hiking">Wandern</span>
                     </span>
-                    <span class="hobby-tag">
+                    <span class="hobby-tag" onclick="toggleGlobe()">
                         <span class="hobby-emoji">✈️</span> <span data-i18n="hobby_travel">Reisen</span>
                     </span>
                     <span class="hobby-tag">
@@ -214,6 +281,12 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- 3D Globe Section (collapsible) -->
+    <section id="globe-section">
+        <h2 id="globe-title">Mein nächstes Reiseziel</h2>
+        <div id="canvas-container"></div>
     </section>
 
     <!-- Skills Section -->
@@ -310,5 +383,172 @@
     <script src="js/hobby-tilt.js"></script>
     <script src="js/hobby-text-size.js"></script>
     <script src="js/logo-sound.js"></script>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls für interaktive Steuerung -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        let globeInitialized = false;
+        let scene, camera, renderer, controls, earth;
+
+        // Funktion zum Ein-/Ausklappen der Weltkugel
+        function toggleGlobe() {
+            const globeSection = document.getElementById('globe-section');
+            const isExpanded = globeSection.classList.contains('expanded');
+
+            if (isExpanded) {
+                // Einklappen
+                globeSection.classList.remove('expanded');
+            } else {
+                // Ausklappen
+                globeSection.classList.add('expanded');
+
+                // Weltkugel initialisieren (nur beim ersten Mal)
+                if (!globeInitialized) {
+                    initGlobe();
+                    globeInitialized = true;
+                }
+
+                // Sanft zur Weltkugel scrollen
+                setTimeout(() => {
+                    globeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        }
+
+        // Weltkugel initialisieren
+        function initGlobe() {
+            // Szene, Kamera und Renderer erstellen
+            scene = new THREE.Scene();
+
+            // Perspektivische Kamera (FOV, Aspect Ratio, Near, Far)
+            camera = new THREE.PerspectiveCamera(
+                45,
+                1,
+                0.1,
+                1000
+            );
+
+            // Kamera so positionieren, dass Südamerika direkt vorne sichtbar ist
+            // X-Position nach links für westliche Hemisphäre (negativer Wert)
+            // Y-Position leicht nach unten für südliche Hemisphäre
+            camera.position.set(+2.8, -0.3, 2.5);
+
+            // WebGL Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            const container = document.getElementById('canvas-container');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // OrbitControls für interaktive Steuerung hinzufügen
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+            // Steuerungsoptionen
+            controls.enableDamping = true; // Sanfte Bewegung
+            controls.dampingFactor = 0.05;
+            controls.enableZoom = false; // Zoom deaktiviert - Kugel bleibt gleich gross
+            controls.autoRotate = true; // Automatische Rotation
+            controls.autoRotateSpeed = 0.5; // Geschwindigkeit der Auto-Rotation
+
+            // Umgebungslicht für gleichmäßige Grundbeleuchtung
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            // Gerichtetes Licht (simuliert Sonnenlicht)
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(5, 3, 5);
+            scene.add(directionalLight);
+
+            // Erd-Geometrie erstellen (Sphäre mit hoher Auflösung für glatte Oberfläche)
+            const earthGeometry = new THREE.SphereGeometry(1, 64, 64);
+
+            // Textur-Loader für die Erd-Textur
+            const textureLoader = new THREE.TextureLoader();
+
+            // Erd-Textur laden (hochauflösende Day-Earth-Map)
+            const earthTexture = textureLoader.load(
+                'https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/planets/earth_atmos_2048.jpg'
+            );
+
+            // Material mit der Erd-Textur erstellen
+            const earthMaterial = new THREE.MeshPhongMaterial({
+                map: earthTexture,
+                shininess: 15
+            });
+
+            // Erd-Mesh erstellen (Geometrie + Material)
+            earth = new THREE.Mesh(earthGeometry, earthMaterial);
+            scene.add(earth);
+
+            // Erde leicht kippen (23,5° Neigung der Erdachse)
+            earth.rotation.z = 23.5 * Math.PI / 180;
+
+            // Brasilien Koordinaten - Rio de Janeiro (Lat: -22.9068, Lon: -43.1729)
+            // Konvertierung zu 3D-Koordinaten auf der Kugel
+            const brazilLat = +7.8068;
+            const brazilLon = -48.1729;
+
+            // Lat/Lon zu Kartesischen Koordinaten (Radius 1 für die Erdkugel)
+            const phi = (90 - brazilLat) * (Math.PI / 180);
+            const theta = (brazilLon + 180) * (Math.PI / 180);
+
+            const pinRadius = 1.01; // Leicht über der Erdoberfläche
+            const pinX = -(pinRadius * Math.sin(phi) * Math.cos(theta));
+            const pinY = pinRadius * Math.cos(phi);
+            const pinZ = pinRadius * Math.sin(phi) * Math.sin(theta);
+
+            // Minimalistischer roter Punkt
+            const pinGroup = new THREE.Group();
+
+            // Einfacher roter Punkt (Kugel)
+            const dotGeometry = new THREE.SphereGeometry(0.03, 32, 32);
+            const dotMaterial = new THREE.MeshBasicMaterial({
+                color: 0xff0000
+            });
+            const dot = new THREE.Mesh(dotGeometry, dotMaterial);
+
+            pinGroup.add(dot);
+
+            // Position der Nadel-Gruppe setzen
+            pinGroup.position.set(pinX, pinY, pinZ);
+
+            // Nadel zur Erde ausrichten (zeigt vom Erdmittelpunkt nach außen)
+            pinGroup.lookAt(0, 0, 0);
+            pinGroup.rotateX(Math.PI); // 180° drehen, damit Nadel nach außen zeigt
+
+            // Nadel zur Szene hinzufügen
+            scene.add(pinGroup);
+
+            // Animationsschleife
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Controls aktualisieren (wichtig für Damping und Auto-Rotation)
+                controls.update();
+
+                // Szene rendern
+                renderer.render(scene, camera);
+            }
+
+            // Animation starten
+            animate();
+
+            // Responsive: Bei Fenstergrößenänderung Canvas anpassen
+            window.addEventListener('resize', () => {
+                const newWidth = container.clientWidth;
+                const newHeight = container.clientHeight;
+
+                camera.aspect = newWidth / newHeight;
+                camera.updateProjectionMatrix();
+
+                renderer.setSize(newWidth, newHeight);
+            });
+        }
+    </script>
 </body>
 </html>
