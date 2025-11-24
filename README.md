@@ -61,7 +61,7 @@ manuel-haenni/
 - ✅ **Smooth Scrolling** für Anchor-Links
 - ✅ **Interaktive Hobby-Karten** mit 3D-Tilt-Effekt
 - ✅ **Modal für FC Langnau Rangliste**
-- ✅ **Interaktive Weltkugel** mit Google Maps Integration
+- ✅ **Interaktive Weltkugel** mit Google Maps Integration (klick auf Reisen-Bild)
 - ✅ **Kontaktformular** mit Validierung
 - ✅ **Toast-Benachrichtigungen**
 - ✅ **Timeline** für Ausbildung und Berufserfahrung
