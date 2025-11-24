@@ -5,11 +5,14 @@ Persönliche Portfolio-Website für Manuel Hänni - Student für Digital Busines
 ## 📁 Projektstruktur
 
 ```
-website-projekt/
+manuel-haenni/
 ├── css/
 │   └── styles.css          # Zentrale CSS-Datei
 ├── js/
 │   ├── main.js            # Gemeinsame JavaScript-Funktionalität
+│   ├── home.js            # Homepage-spezifische Funktionalität
+│   ├── contact.js         # Kontaktformular-Funktionalität
+│   ├── maps.js            # Google Maps Integration
 │   ├── weather.js         # Wetter-Widget Funktionalität
 │   ├── i18n.js            # Mehrsprachigkeit (DE/EN)
 │   ├── title-animation.js # Animierte Titel-Effekte
@@ -19,14 +22,25 @@ website-projekt/
 ├── assets/
 │   ├── manuel.jpg         # Profilbild
 │   ├── Lebenslauf.pdf     # Lebenslauf zum Download
-│   ├── CPRE-Zertifikat.pdf
+│   ├── CPRE-Zertifikat.pdf # Zertifikat
+│   ├── MH_schlag.mp3      # Sound-Datei für Logo
 │   ├── Hobbys/            # Hobby-Bilder
-│   └── Company Logos      # Firmen- und Instituts-Logos
+│   ├── logos/             # Diverse Logos
+│   ├── BFH-Logo.png       # BFH Logo
+│   ├── Uni-Bern-Logo.jpg  # Uni Bern Logo
+│   ├── Valiant_Logo.png   # Valiant Bank Logo
+│   ├── bzemme_logo.png    # BZEmme Logo
+│   ├── wks_logo.png       # WKS KV Bildung Logo
+│   ├── schweizer_armee.png # Schweizer Armee Logo
+│   └── schule_luetzu-logo.png # Schule Lützelflüh Logo
+├── img/                   # Weitere Bilder
 ├── index.html             # Homepage
 ├── ausbildung.html        # Ausbildungsseite
 ├── erfahrung.html         # Berufserfahrung
 ├── zertifikate.html       # Zertifikate
 ├── kontakt.html           # Kontaktseite
+├── impressum.html         # Impressum
+├── datenschutz.html       # Datenschutzerklärung
 └── README.md              # Diese Datei
 ```
 
@@ -47,6 +61,7 @@ website-projekt/
 - ✅ **Smooth Scrolling** für Anchor-Links
 - ✅ **Interaktive Hobby-Karten** mit 3D-Tilt-Effekt
 - ✅ **Modal für FC Langnau Rangliste**
+- ✅ **Interaktive Weltkugel** mit Google Maps Integration
 - ✅ **Kontaktformular** mit Validierung
 - ✅ **Toast-Benachrichtigungen**
 - ✅ **Timeline** für Ausbildung und Berufserfahrung
@@ -104,15 +119,19 @@ Alle Styles befinden sich in `css/styles.css`:
 - **Gemeinsame Funktionen:** `js/main.js`
 - **Homepage-Features:** `js/home.js`
 - **Kontaktformular:** `js/contact.js`
+- **Maps Integration:** `js/maps.js`
+- **Wetter-Widget:** `js/weather.js`
+- **Mehrsprachigkeit:** `js/i18n.js`
 
 ### Inhalte ändern
 Bearbeite einfach die entsprechenden HTML-Dateien:
-- `index.html` - Homepage, Über mich, Skills
+- `index.html` - Homepage, Über mich, Skills, Hobbys
 - `ausbildung.html` - Bildungsweg
 - `erfahrung.html` - Berufserfahrung
 - `zertifikate.html` - Zertifikate
 - `kontakt.html` - Kontaktinformationen
-- `reisen.html` - Reiseerfahrungen
+- `impressum.html` - Impressum
+- `datenschutz.html` - Datenschutzerklärung
 
 ## 🔧 Technische Details
 
@@ -122,6 +141,7 @@ Bearbeite einfach die entsprechenden HTML-Dateien:
 - **Vanilla JavaScript** - Keine Frameworks nötig
 - **Google Fonts** - Inter Schriftfamilie
 - **Font Awesome 6.5.1** - Icon-Bibliothek
+- **Google Maps API** - Interaktive Weltkugel mit Marker
 - **Wetter-API** - Echtzeit-Wetterdaten
 
 ### Browser-Kompatibilität
