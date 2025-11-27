@@ -170,7 +170,10 @@ const translations = {
 
         // Profile Flip Card
         profile_contact_title: "Kontaktiere mich",
-        profile_contact_btn: "Zur Kontaktseite"
+        profile_contact_btn: "Zur Kontaktseite",
+
+        // Globe Section
+        globe_title: "Mein nächstes Reiseziel"
     },
     en: {
         // Navigation
@@ -340,7 +343,10 @@ const translations = {
 
         // Profile Flip Card
         profile_contact_title: "Contact me",
-        profile_contact_btn: "To Contact Page"
+        profile_contact_btn: "To Contact Page",
+
+        // Globe Section
+        globe_title: "My Next Travel Destination"
     }
 };
 
