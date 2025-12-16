@@ -66,7 +66,6 @@ manuel-haenni/
 - ✅ **Toast-Benachrichtigungen**
 - ✅ **Timeline** für Ausbildung und Berufserfahrung
 - ✅ **Font Awesome Icons** - Moderne, skalierbare Icons
-- ✅ **Barrierefreiheit** - Alt-Texte und ARIA-Labels für Screen Reader
 
 ## 🚀 Installation & Verwendung
 
