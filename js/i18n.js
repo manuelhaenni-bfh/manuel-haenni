@@ -151,22 +151,17 @@ const translations = {
         datenschutz_collection_title: "Wie erfassen wir Ihre Daten?",
         datenschutz_collection_text1: "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben.",
         datenschutz_collection_text2: "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
-        datenschutz_weather_title: "3. Wetter-Widget",
-        datenschutz_weather_text: "Diese Website verwendet die OpenWeatherMap API, um Wetterinformationen für Bern anzuzeigen. Dabei werden keine personenbezogenen Daten übertragen.",
-        datenschutz_rights_title: "4. Ihre Rechte",
+        datenschutz_rights_title: "3. Ihre Rechte",
         datenschutz_rights_intro: "Sie haben jederzeit das Recht:",
         datenschutz_rights_1: "Auskunft über Ihre gespeicherten personenbezogenen Daten zu erhalten",
         datenschutz_rights_2: "Die Berichtigung unrichtiger personenbezogener Daten zu verlangen",
         datenschutz_rights_3: "Die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen",
-        datenschutz_changes_title: "5. Änderungen",
+        datenschutz_changes_title: "4. Änderungen",
         datenschutz_changes_text: "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen.",
 
         // Toast Messages
         toast_success: "Nachricht erfolgreich gesendet!",
         toast_error: "Fehler beim Senden der Nachricht.",
-
-        // Weather
-        weather_city: "Bern, Schweiz",
 
         // Profile Flip Card
         profile_contact_title: "Kontaktiere mich",
@@ -324,22 +319,17 @@ const translations = {
         datenschutz_collection_title: "How do we collect your data?",
         datenschutz_collection_text1: "Your data is collected in part by you providing it to us. This may be data that you enter into a contact form, for example.",
         datenschutz_collection_text2: "Other data is collected automatically or with your consent when you visit the website by our IT systems. This is primarily technical data (e.g. internet browser, operating system or time of page access).",
-        datenschutz_weather_title: "3. Weather Widget",
-        datenschutz_weather_text: "This website uses the OpenWeatherMap API to display weather information for Bern. No personal data is transmitted in the process.",
-        datenschutz_rights_title: "4. Your Rights",
+        datenschutz_rights_title: "3. Your Rights",
         datenschutz_rights_intro: "You have the right at any time to:",
         datenschutz_rights_1: "Obtain information about your stored personal data",
         datenschutz_rights_2: "Request correction of inaccurate personal data",
         datenschutz_rights_3: "Request deletion of your personal data stored by us",
-        datenschutz_changes_title: "5. Changes",
+        datenschutz_changes_title: "4. Changes",
         datenschutz_changes_text: "We reserve the right to adapt this privacy policy so that it always complies with current legal requirements or to implement changes to our services in the privacy policy.",
 
         // Toast Messages
         toast_success: "Message sent successfully!",
         toast_error: "Error sending message.",
-
-        // Weather
-        weather_city: "Bern, Switzerland",
 
         // Profile Flip Card
         profile_contact_title: "Contact me",
@@ -384,16 +374,6 @@ function updatePageLanguage() {
         }
     });
 
-    // Spezielle Behandlung für das Wetter-Widget
-    updateWeatherLanguage();
-}
-
-// Funktion zum Aktualisieren der Wetter-Stadt
-function updateWeatherLanguage() {
-    const weatherCity = document.querySelector('.weather-city');
-    if (weatherCity) {
-        weatherCity.textContent = translations[currentLanguage].weather_city;
-    }
 }
 
 // Funktion zum Aktualisieren des Sprach-Buttons
