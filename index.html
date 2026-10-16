@@ -350,7 +350,7 @@
                 </iframe>
             </div>
             <div class="modal-footer">
-                <a href="https://matchcenter.fvbj-afbj.ch/default.aspx?lng=1&cxxlnus=1&v=1405&t=37049&ls=24444&sg=67584&a=trr&bn=0" 
+                <a href="https://matchcenter.fvbj-afbj.ch/default.aspx?v=1405&oid=6&lng=1&t=37049&a=trr" 
                    target="_blank" 
                    rel="noopener noreferrer">
                     Zur vollständigen Rangliste auf fvbj-afbj.ch →
@@ -431,10 +431,8 @@
                 1000
             );
 
-            // Kamera so positionieren, dass Südamerika direkt vorne sichtbar ist
-            // X-Position nach links für westliche Hemisphäre (negativer Wert)
-            // Y-Position leicht nach unten für südliche Hemisphäre
-            camera.position.set(+2.8, -0.3, 2.5);
+            // Kamera so positionieren, dass Mexiko direkt vorne sichtbar ist
+            camera.position.set(-1.0, 0.9, 3.5);
 
             // WebGL Renderer
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -488,14 +486,14 @@
             // Erde leicht kippen (23,5° Neigung der Erdachse)
             earth.rotation.z = 23.5 * Math.PI / 180;
 
-            // Brasilien Koordinaten - Rio de Janeiro (Lat: -22.9068, Lon: -43.1729)
+            // Mexiko Koordinaten - Mexiko-Stadt (Lat: 19.4326, Lon: -99.1332)
             // Konvertierung zu 3D-Koordinaten auf der Kugel
-            const brazilLat = +7.8068;
-            const brazilLon = -48.1729;
+            const destLat = 19.4326;
+            const destLon = -99.1332;
 
             // Lat/Lon zu Kartesischen Koordinaten (Radius 1 für die Erdkugel)
-            const phi = (90 - brazilLat) * (Math.PI / 180);
-            const theta = (brazilLon + 180) * (Math.PI / 180);
+            const phi = (90 - destLat) * (Math.PI / 180);
+            const theta = (destLon + 180) * (Math.PI / 180);
 
             const pinRadius = 1.01; // Leicht über der Erdoberfläche
             const pinX = -(pinRadius * Math.sin(phi) * Math.cos(theta));
@@ -521,8 +519,8 @@
             pinGroup.lookAt(0, 0, 0);
             pinGroup.rotateX(Math.PI); // 180° drehen, damit Nadel nach außen zeigt
 
-            // Nadel zur Szene hinzufügen
-            scene.add(pinGroup);
+            // Nadel zur Erde hinzufügen, damit sie die Erdneigung mitmacht
+            earth.add(pinGroup);
 
             // Animationsschleife
             function animate() {

@@ -168,7 +168,7 @@ function openRankingModal() {
     
     // Load iframe only on first open for better performance
     if (iframe.src === 'about:blank') {
-        iframe.src = 'https://matchcenter.fvbj-afbj.ch/default.aspx?lng=1&cxxlnus=1&v=1405&t=37049&ls=24444&sg=67584&a=trr&bn=0';
+        iframe.src = 'https://matchcenter.fvbj-afbj.ch/default.aspx?v=1405&oid=6&lng=1&t=37049&a=trr';
     }
     
     modal.classList.add('show');
