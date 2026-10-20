@@ -15,7 +15,6 @@ const translations = {
         hero_role_secondary: "Hilfsassistent am Institut für Wirtschaftsinformatik, Universität Bern",
         hero_tagline: "Als Student im Bereich Digital Business und AI fasziniert mich die Verbindung von Wirtschaft und Technologie. Besonders begeistert mich die Zukunft der Digitalisierung und die Möglichkeiten, Prozesse zu vereinfachen und wenn möglich mit künstlicher Intelligenz zu unterstützen.",
         hero_btn_contact: "Kontakt aufnehmen",
-        hero_btn_cv: "Lebenslauf als PDF herunterladen",
 
         // About Section
         about_title: "Über mich",
@@ -183,7 +182,6 @@ const translations = {
         hero_role_secondary: "Research Assistant at the Institute of Information Systems, University of Bern",
         hero_tagline: "As a student in Digital Business and AI, I am fascinated by the connection between business and technology. I am particularly excited about the future of digitalization and the opportunities to simplify processes and, where possible, support them with artificial intelligence.",
         hero_btn_contact: "Get in touch",
-        hero_btn_cv: "Download CV as PDF",
 
         // About Section
         about_title: "About me",

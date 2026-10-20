@@ -58,7 +58,7 @@
                         <span class="lang-option" data-lang="en">EN</span>
                     </div>
                 </nav>
-                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menü öffnen">☰</button>
             </div>
         </div>
     </header>
@@ -114,22 +114,5 @@
 
     <script src="js/i18n.js"></script>
     <script src="js/logo-sound.js"></script>
-    <script>
-        // Mobile Menu Funktionalität
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('nav').classList.toggle('active');
-            this.classList.toggle('active');
-        });
-
-        // Header Scroll Effekt
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>

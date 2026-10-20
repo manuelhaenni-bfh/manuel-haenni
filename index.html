@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel Hänni</title>
+    <title>Manuel Hänni - Portfolio</title>
     <meta name="description" content="Als Student im Bereich Digital Business und AI fasziniert mich die Verbindung von Wirtschaft und Technologie. Hilfsassistent am Institut für Wirtschaftsinformatik, Universität Bern.">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Manuel Hänni - BSc Digital Business & AI">
+    <meta property="og:title" content="Manuel Hänni - Portfolio">
+    <meta property="og:site_name" content="Manuel Hänni">
     <meta property="og:description" content="Als Student im Bereich Digital Business und AI fasziniert mich die Verbindung von Wirtschaft und Technologie. Hilfsassistent am Institut für Wirtschaftsinformatik, Universität Bern.">
     <meta property="og:image" content="assets/manuel.jpg">
     <meta property="og:type" content="website">
     
+    <!-- Seitenname für die Google-Suche -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Manuel Hänni",
+        "url": "https://manuelhaenni.ch/"
+    }
+    </script>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -159,7 +170,6 @@
                                 <div class="dot dot-5"></div>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-secondary" data-i18n="hero_btn_cv" onclick="event.preventDefault(); alert(localStorage.getItem('language') === 'en' ? 'The CV is currently being updated. If you\'re interested, you can reach me via the contact page.' : 'Der Lebenslauf wird aktuell aktualisiert. Bei Interesse erreichst du mich über die Kontaktseite.')">Lebenslauf als PDF herunterladen</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -169,7 +179,7 @@
                             <div class="profile-flip-inner">
                                 <!-- Vorderseite: Foto -->
                                 <div class="profile-flip-front">
-                                    <img src="assets/manuel.jpg" alt="Profilfoto von Manuel Hänni" class="profile-photo" loading="lazy">
+                                    <img src="assets/manuel.jpg" alt="Profilfoto von Manuel Hänni" class="profile-photo">
                                 </div>
                                 <!-- Rückseite: Kontakt-Infos -->
                                 <div class="profile-flip-back">
@@ -207,7 +217,7 @@
             <h2 class="section-title" data-i18n="about_title">Über mich</h2>
             <div class="about-content">
                 <p class="about-text" data-i18n="about_text">
-                    Ich studiere Digital Business & AI an der Bernern Fachhochschule und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik an der Universität Bern. Ausgleich finde ich beim Fussballspielen, im gemeinschaftlichen Leben in meiner WG in Bern und bei meinen untenstehenden Hobbys.
+                    Ich studiere Digital Business & AI an der Berner Fachhochschule und arbeite als Hilfsassistent am Institut für Wirtschaftsinformatik an der Universität Bern. Ausgleich finde ich beim Fussballspielen, im gemeinschaftlichen Leben in meiner WG in Bern und bei meinen untenstehenden Hobbys.
                 </p>
                 <!-- Desktop: Image Gallery -->
                 <div class="hobbies-gallery">
@@ -242,7 +252,7 @@
                         </div>
                     </div>
                     <div class="hobby-image-card" data-hobby="diving">
-                        <img src="assets/Hobbys/Tauchen.png" alt="Taucher unter Wasser mit bunten Korallen" loading="lazy">
+                        <img src="assets/Hobbys/Tauchen.jpg" alt="Taucher unter Wasser mit bunten Korallen" loading="lazy">
                         <div class="hobby-overlay">
                             <span class="hobby-label" data-i18n="hobby_diving">Tauchen</span>
                         </div>
@@ -359,8 +369,6 @@
         </div>
     </div>
 
-    <!-- Wetterdaten sind jetzt nur im Header -->
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -391,6 +399,7 @@
 
     <script>
         let globeInitialized = false;
+        let globeRunning = false;
         let scene, camera, renderer, controls, earth;
 
         // Funktion zum Ein-/Ausklappen der Weltkugel
@@ -399,8 +408,9 @@
             const isExpanded = globeSection.classList.contains('expanded');
 
             if (isExpanded) {
-                // Einklappen
+                // Einklappen und Animation anhalten
                 globeSection.classList.remove('expanded');
+                globeRunning = false;
             } else {
                 // Ausklappen
                 globeSection.classList.add('expanded');
@@ -411,11 +421,29 @@
                     globeInitialized = true;
                 }
 
+                // Animation (wieder) starten
+                if (!globeRunning) {
+                    globeRunning = true;
+                    animateGlobe();
+                }
+
                 // Sanft zur Weltkugel scrollen
                 setTimeout(() => {
                     globeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 100);
             }
+        }
+
+        // Animationsschleife, läuft nur solange die Weltkugel ausgeklappt ist
+        function animateGlobe() {
+            if (!globeRunning) return;
+            requestAnimationFrame(animateGlobe);
+
+            // Controls aktualisieren (wichtig für Damping und Auto-Rotation)
+            controls.update();
+
+            // Szene rendern
+            renderer.render(scene, camera);
         }
 
         // Weltkugel initialisieren
@@ -521,20 +549,6 @@
 
             // Nadel zur Erde hinzufügen, damit sie die Erdneigung mitmacht
             earth.add(pinGroup);
-
-            // Animationsschleife
-            function animate() {
-                requestAnimationFrame(animate);
-
-                // Controls aktualisieren (wichtig für Damping und Auto-Rotation)
-                controls.update();
-
-                // Szene rendern
-                renderer.render(scene, camera);
-            }
-
-            // Animation starten
-            animate();
 
             // Responsive: Bei Fenstergrößenänderung Canvas anpassen
             window.addEventListener('resize', () => {

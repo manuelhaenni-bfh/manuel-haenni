@@ -63,13 +63,17 @@ function setButtonLoading(button, loading) {
  * @param {string} name - Name of the sender
  */
 function transformFormToThankYou(form, name) {
+    // Escape name so user input is never interpreted as HTML
+    const safeName = document.createElement('span');
+    safeName.textContent = name;
+
     // Create thank you message HTML
     const thankYouHTML = `
         <div class="thank-you-message">
             <div class="thank-you-icon">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
-            <h2>Vielen Dank, ${name}!</h2>
+            <h2>Vielen Dank, ${safeName.innerHTML}!</h2>
             <p>Deine Nachricht wurde erfolgreich versendet.</p>
             <p>Ich werde mich so schnell wie möglich bei dir melden.</p>
             <button type="button" class="btn btn-primary" onclick="resetContactForm()">

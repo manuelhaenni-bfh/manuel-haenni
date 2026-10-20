@@ -12,8 +12,6 @@ manuel-haenni/
 │   ├── main.js            # Gemeinsame JavaScript-Funktionalität
 │   ├── home.js            # Homepage-spezifische Funktionalität
 │   ├── contact.js         # Kontaktformular-Funktionalität
-│   ├── maps.js            # Google Maps Integration
-│   ├── weather.js         # Wetter-Widget Funktionalität
 │   ├── i18n.js            # Mehrsprachigkeit (DE/EN)
 │   ├── title-animation.js # Animierte Titel-Effekte
 │   ├── hobby-tilt.js      # 3D-Tilt-Effekt für Hobby-Karten
@@ -57,11 +55,10 @@ manuel-haenni/
 - ✅ **Fixierter Header** mit aktiver Navigation
 - ✅ **Mobile Navigation** mit Hamburger-Menu
 - ✅ **Mehrsprachigkeit** (Deutsch/Englisch)
-- ✅ **Wetter-Widget** mit Echtzeit-Daten
 - ✅ **Smooth Scrolling** für Anchor-Links
 - ✅ **Interaktive Hobby-Karten** mit 3D-Tilt-Effekt
 - ✅ **Modal für FC Langnau Rangliste**
-- ✅ **Interaktive Weltkugel** mit Google Maps Integration (klick auf Reisen-Bild)
+- ✅ **Interaktive Weltkugel** mit Three.js (Klick auf Reisen-Bild)
 - ✅ **Kontaktformular** mit Validierung
 - ✅ **Toast-Benachrichtigungen**
 - ✅ **Timeline** für Ausbildung und Berufserfahrung
@@ -118,8 +115,6 @@ Alle Styles befinden sich in `css/styles.css`:
 - **Gemeinsame Funktionen:** `js/main.js`
 - **Homepage-Features:** `js/home.js`
 - **Kontaktformular:** `js/contact.js`
-- **Maps Integration:** `js/maps.js`
-- **Wetter-Widget:** `js/weather.js`
 - **Mehrsprachigkeit:** `js/i18n.js`
 
 ### Inhalte ändern
@@ -140,8 +135,7 @@ Bearbeite einfach die entsprechenden HTML-Dateien:
 - **Vanilla JavaScript** - Keine Frameworks nötig
 - **Google Fonts** - Inter Schriftfamilie
 - **Font Awesome 6.5.1** - Icon-Bibliothek
-- **Google Maps API** - Interaktive Weltkugel mit Marker
-- **Wetter-API** - Echtzeit-Wetterdaten
+- **Three.js** - Interaktive Weltkugel mit Marker
 
 ### Browser-Kompatibilität
 - ✅ Chrome/Edge (letzte 2 Versionen)
@@ -188,11 +182,10 @@ Default: 1200px Container-Breite
 2. ✅ Ordnerstruktur ist sauber
 3. ✅ Code ist dokumentiert
 4. ✅ Mehrsprachigkeit integriert
-5. ✅ Wetter-Widget implementiert
-6. ✅ Barrierefreiheit implementiert
-7. ✅ Font Awesome Icons integriert
-8. ✅ Performance getestet (Lighthouse: 80+)
-9. ✅ Website auf GitHub Pages deployen
+5. ✅ Barrierefreiheit implementiert
+6. ✅ Font Awesome Icons integriert
+7. ✅ Performance getestet (Lighthouse: 80+)
+8. ✅ Website auf GitHub Pages deployen
 
 ### Für das Modul
 - [x] Mit VS Code arbeiten
